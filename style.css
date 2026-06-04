@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CORE GLOBAL STYLES
+   1. CORE GLOBAL STYLE OVERRIDES
    ========================================================================== */
 * {
     margin: 0;
@@ -12,26 +12,26 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro", "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #111111;
-    background-color: #ffffff; /* Crisp white for the portfolio content body */
+    background-color: #f9f8f6 !important; /* Uniform soft cream background from image_33eb76.png */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
-/* Container keeping middle text elements strictly aligned */
+/* Master content centering alignment */
 .main-content-wrapper {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 4rem;
 }
 
 /* ==========================================================================
-   2. HERO FOLD CANVAS OVERRIDES (100% REPLICA OF IMAGE_4C76E1.PNG)
+   2. HERO AREA REPLICA (From image_4c76e1.png)
    ========================================================================== */
 .hero-fold-wrapper {
-    background-color: #f9f8f6 !important; /* Exact cream/off-white tone from image_4c76e1.png */
+    background-color: #f9f8f6 !important;
     min-height: 100vh;
     width: 100vw;
     position: relative;
@@ -61,7 +61,7 @@ body {
     margin-left: 3rem;
     font-size: 0.75rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.25em !important; /* High tracking spacing layout */
+    letter-spacing: 0.25em !important;
     transition: opacity 0.15s ease;
 }
 
@@ -76,27 +76,23 @@ body {
     padding-bottom: 8rem;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem; /* Clean layout distance gap between statements */
+    gap: 3.5rem;
     position: relative;
 }
 
 .replica-headline {
     font-family: "Georgia", "Times New Roman", serif !important;
-    font-size: 4.8rem !important; /* Giant compressed typography scale */
+    font-size: 4.8rem !important;
     font-weight: 400 !important;
     color: #111111 !important;
-    line-height: 1.05 !important; /* Extremely tight line spacing */
-    letter-spacing: -0.04em !important; /* Condensed letter tracking */
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
     text-transform: none !important;
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
-    max-width: 980px;
 }
 
 .replica-headline em {
     font-style: italic !important;
     font-family: "Georgia", "Times New Roman", serif !important;
-    font-weight: 400 !important;
 }
 
 .replica-scroll {
@@ -110,184 +106,141 @@ body {
 }
 
 /* ==========================================================================
-   3. INTERNAL DATA SECTIONS (WORK, SKILLS, REVIEWS)
+   3. INTERNAL STRUCTURAL SECTIONS (100% REPLICA FROM IMAGE_33EB76.PNG)
    ========================================================================== */
 .inner-section {
-    margin: 10rem auto;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
 }
 
-.inner-section h2 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #888888;
-    margin-bottom: 3.5rem;
-    letter-spacing: 0.2em;
+/* Light separation dividers spanning across layout columns */
+.section-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
+    margin-bottom: 2.5rem;
 }
 
-/* Timeline Components */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 4.5rem;
-}
-
-.timeline-item {
-    display: flex;
-    gap: 5rem;
-}
-
-.timeline-date {
-    min-width: 140px;
-    font-weight: 600;
-    color: #999999;
-    font-size: 0.95rem;
-}
-
-.timeline-content {
-    flex: 1;
-}
-
-.timeline-content h3 {
-    font-size: 1.35rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: #111111;
-    margin-bottom: 0.3rem;
-}
-
-.timeline-content h4 {
-    font-size: 0.95rem;
-    color: #666666;
-    font-weight: 500;
-    margin-bottom: 1.2rem;
-}
-
-.timeline-content p {
-    color: #444444;
-    font-size: 1.05rem;
-    line-height: 1.7;
-}
-
-/* Skills Content Grid Component */
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.skills-block h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 1.2rem;
-    color: #222222;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
-
-.tags span {
-    background-color: #f4f4f6; /* Modern subtle tag blocks */
-    color: #333333;
-    padding: 0.45rem 0.9rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-/* Experiments Layout */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 3rem;
-}
-
-.project-card {
-    border: 1px solid #ebeeec;
-    padding: 2.5rem;
-    border-radius: 8px;
-    background-color: #ffffff;
-    transition: border-color 0.2s ease;
-}
-
-.project-card:hover {
-    border-color: #FF4A22; /* Accents matching contact scheme */
-}
-
-.project-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    letter-spacing: -0.02em;
-}
-
-.project-tech {
-    display: inline-block;
+.section-tag-label {
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #FF4A22;
-    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+/* Massive Serif Section Headings */
+.section-main-title {
+    font-family: "Georgia", "Times New Roman", serif !important;
+    font-size: 5.5rem !important; /* Large "Work" design scale */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 4rem !important;
+    text-transform: none !important;
+}
+
+/* Experience List Layout Outer Framework */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Row wrapper separating layout objects with thin border lines */
+.exp-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.exp-row:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Left Content Column Configuration */
+.exp-left-col {
+    display: flex;
+    gap: 4rem;
+    flex: 1;
+    max-width: 65%;
+}
+
+.exp-number {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-top: 0.6rem;
+}
+
+.exp-job-details h3 {
+    font-family: "Georgia", "Times New Roman", serif !important;
+    font-size: 2.2rem !important; /* Elegant serif company header */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 0.4rem;
+}
+
+.exp-role-title {
+    font-family: "Georgia", "Times New Roman", serif !important;
+    font-style: italic !important;
+    font-size: 1.1rem;
+    color: #333333;
     margin-bottom: 1.5rem;
 }
 
-.project-card p {
+.exp-description {
+    font-family: "Courier New", Courier, monospace !important; /* Signature text layout style */
     font-size: 0.95rem;
-    color: #555555;
     line-height: 1.65;
-}
-
-/* Education Layout Grid Splits */
-.edu-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 5rem;
-}
-
-.edu-column {
-    flex: 1;
-}
-
-.edu-column h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-.edu-entry {
-    margin-bottom: 2rem;
-}
-
-.edu-entry strong {
-    display: block;
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-}
-
-.edu-entry p {
-    font-size: 0.95rem;
     color: #555555;
 }
 
-.cert-list {
-    list-style: none;
+/* Right Content Column Configuration (Tags & Dates alignment) */
+.exp-right-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-width: 250px;
+    text-align: right;
 }
 
-.cert-list li {
-    font-size: 0.95rem;
-    color: #444444;
-    margin-bottom: 1rem;
+.exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+/* Red-orange outline skills tags */
+.exp-tags span {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #FF4A22 !important; /* Red orange tone */
+    border: 1px solid #FF4A22 !important; /* Matching outline box */
+    padding: 0.35rem 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.exp-date {
+    font-family: "Courier New", Courier, monospace !important;
+    font-size: 0.85rem;
+    color: #666666;
 }
 
 /* ==========================================================================
-   4. CONTACT RED SECTION BANNER (100% REPLICA OF IMAGE_4D6EA9.PNG)
+   4. CONTACT RED SECTION BANNER (From image_4d6ea9.png)
    ========================================================================== */
 .contact-red-section {
-    background-color: #FF4A22 !important; /* Signature high-impact red-orange color */
+    background-color: #FF4A22 !important;
     max-width: 100% !important;
     width: 100vw;
     position: relative;
@@ -295,7 +248,7 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-top: 12rem;
+    margin-top: 10rem;
     margin-bottom: 0 !important;
     padding: 8rem 0;
     text-align: center;
@@ -320,14 +273,11 @@ body {
 
 .contact-title {
     font-family: "Georgia", "Times New Roman", serif !important;
-    font-size: 5.5rem !important; /* Large headline */
+    font-size: 5.5rem !important;
     font-weight: 500 !important;
     color: #111111 !important;
     letter-spacing: -0.02em !important;
     margin-bottom: 3rem !important;
-    text-transform: none !important;
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
 }
 
 .contact-email-wrapper {
@@ -343,11 +293,6 @@ body {
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.75);
     padding-bottom: 0.5rem;
     letter-spacing: 0.05em;
-    transition: opacity 0.2s ease;
-}
-
-.contact-main-email:hover {
-    opacity: 0.8;
 }
 
 .contact-sub-links {
@@ -360,11 +305,6 @@ body {
 .contact-sub-links a {
     color: rgba(255, 255, 255, 0.6) !important;
     text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.contact-sub-links a:hover {
-    color: #ffffff !important;
 }
 
 .contact-sub-links .divider {
@@ -378,11 +318,11 @@ body {
 footer {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 4rem;
+    padding: 4rem;
     text-align: left;
     color: #999999;
     font-size: 0.85rem;
-    background-color: #ffffff;
+    background-color: #f9f8f6; /* Matching cream background */
 }
 
 /* ==========================================================================
@@ -390,21 +330,19 @@ footer {
    ========================================================================== */
 @media (max-width: 1024px) {
     .replica-headline { font-size: 3.4rem !important; }
-    .hero-fold-wrapper { padding: 0 2rem; }
-    .main-content-wrapper { padding: 0 2rem; }
-    .replica-nav a { margin-left: 1.5rem; }
-    .timeline-item { gap: 2rem; }
+    .hero-fold-wrapper, .main-content-wrapper { padding: 0 2rem; }
+    .section-main-title { font-size: 4rem !important; }
+    .exp-left-col { max-width: 60%; gap: 2rem; }
 }
 
 @media (max-width: 768px) {
     .replica-headline { font-size: 2.3rem !important; line-height: 1.15 !important; }
     .replica-hero { gap: 2.5rem; padding-bottom: 4rem; }
-    .replica-header { padding: 1.5rem 0; }
-    .timeline-item { flex-direction: column; gap: 0.5rem; }
-    .timeline-date { min-width: auto; }
-    .edu-container { flex-direction: column; gap: 3.5rem; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .contact-title { font-size: 3.6rem !important; margin-bottom: 2rem !important; }
-    .contact-main-email { font-size: 1.05rem; }
-    .contact-red-section { padding: 5rem 0; }
+    .section-main-title { font-size: 3.5rem !important; margin-bottom: 2.5rem !important; }
+    .exp-row { flex-direction: column; gap: 2rem; padding: 2rem 0; }
+    .exp-left-col { max-width: 100%; gap: 1.5rem; }
+    .exp-job-details h3 { font-size: 1.8rem !important; }
+    .exp-right-col { align-items: flex-start; text-align: left; min-width: auto; }
+    .exp-tags { justify-content: flex-start; margin-bottom: 1rem; }
+    .contact-title { font-size: 3.6rem !important; }
 }
