@@ -321,3 +321,106 @@ footer {
     .edu-container { flex-direction: column; gap: 3rem; }
     .projects-grid { grid-template-columns: 1fr; }
 }
+
+
+/* --- EXACT REPLICA OF IMAGE_4D6EA9.PNG CONTACT BANNER --- */
+
+/* Full-width container handling the red-orange canvas stretch */
+.contact-red-section {
+    background-color: #FF4A22 !important; /* Exact color from image_4d6ea9.png */
+    max-width: 100% !important;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 8rem;
+    margin-bottom: 0 !important;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Small widely-spaced section tag */
+.contact-section-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Large, classic elegant serif header */
+.contact-title {
+    font-family: "Georgia", "Times New Roman", serif !important;
+    font-size: 5.5rem !important;
+    font-weight: 500 !important;
+    color: #111111 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 2.5rem !important;
+    text-transform: none !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* White Monospace Underlined Active Email */
+.contact-email-wrapper {
+    margin-bottom: 4rem;
+}
+
+.contact-main-email {
+    font-family: "Courier New", Courier, monospace !important;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
+    padding-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s ease;
+}
+
+.contact-main-email:hover {
+    opacity: 0.8;
+}
+
+/* Bottom Subtle Nav Anchors */
+.contact-sub-links {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-sub-links a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-sub-links a:hover {
+    color: #ffffff !important;
+}
+
+.contact-sub-links .divider {
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Fluid responsive breakdown for tablets/phones */
+@media (max-width: 768px) {
+    .contact-title { font-size: 3.5rem !important; margin-bottom: 2rem !important; }
+    .contact-main-email { font-size: 1.05rem; }
+    .contact-red-section { padding: 4rem 0; }
+}
