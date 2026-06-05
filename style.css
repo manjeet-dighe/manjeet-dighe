@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CORE RENDERING ENGINE & EDITORIAL SYSTEM CANVAS
+   1. CORE RENDERING ENGINE & EDITORIAL CANVASES
    ========================================================================== */
 * {
     margin: 0;
@@ -15,12 +15,12 @@ html {
 body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     color: #111111;
-    background-color: #f9f8f6 !important; /* Matches raw paper background hex */
+    background-color: #f9f8f6 !important; /* Premium paper backdrop hue match */
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    cursor: none; /* Masks system cursor to draw high-end layout replacement pointer */
+    cursor: none; /* Masks baseline operating system pointer metrics */
 }
 
 .main-content-wrapper {
@@ -30,7 +30,20 @@ body {
 }
 
 /* ==========================================================================
-   1B. HIGH-PERFORMANCE NOISE TEXTURE EMULATOR
+   1B. FULL-SCREEN CANVAS VECTOR TRAIL ENGINE CONTAINER
+   ========================================================================== */
+.cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Allows natural user item clicks to bypass canvas matrix layer */
+    z-index: 9998; /* Floats directly beneath interface pointer UI rings */
+}
+
+/* ==========================================================================
+   1C. HIGH-PERFORMANCE ANALOGUE FILM GRAIN NOISE OVERLAY
    ========================================================================== */
 .grain {
     position: fixed;
@@ -60,7 +73,7 @@ body {
 }
 
 /* ==========================================================================
-   1C. LERP STRUCTURAL CURSOR GRAPHICS 
+   1D. POINTER MODULE INTERFACE GRAPHICS 
    ========================================================================== */
 .cursor-dot {
     width: 4px;
@@ -90,11 +103,11 @@ body {
 
 @media (hover: none) and (pointer: coarse) {
     body { cursor: auto; }
-    .cursor-dot, .cursor-ring { display: none; }
+    .cursor-dot, .cursor-ring, .cursor-trail { display: none !important; }
 }
 
 /* ==========================================================================
-   2. HERO HEADER & ASYMMETRIC DISPLAY OVERLAYS
+   2. HERO HEADER & SPATIAL LAYOUT CORES
    ========================================================================== */
 .hero-fold-wrapper {
     background-color: #f9f8f6 !important;
@@ -165,7 +178,7 @@ body {
 }
 
 /* ==========================================================================
-   3. ASYMMETRIC EXPERIENCES GRID SYSTEM (EXACT REPLICATION)
+   3. ASYMMETRIC EXPERIENCES GRID SYSTEM (EXACT MATCHING)
    ========================================================================== */
 .inner-section {
     padding-top: 12rem; 
@@ -204,7 +217,6 @@ body {
     flex-direction: column;
 }
 
-/* Mirrors Renzhi's exact 3-column structural layout asymmetry */
 .exp-row {
     display: grid;
     grid-template-columns: 1.2fr 1.8fr 1fr; 
@@ -248,10 +260,12 @@ body {
     margin-bottom: 2.2rem;
 }
 
-/* Identical text rendering parameters matching her microscopic styling */
+/* EXACT REPLICATED FIXED MICRO-FONT SCALE PROFILE 
+   Locked completely at 12px independent of variable layout length metrics.
+*/
 .exp-description {
     font-family: "Inter", sans-serif !important;
-    font-size: 0.78rem !important; 
+    font-size: 12px !important; /* Forces strict absolute lock step with Renzhi's layout scale */
     line-height: 1.8 !important; 
     color: #555555 !important; 
     max-width: 490px; 
@@ -297,7 +311,7 @@ body {
 }
 
 /* ==========================================================================
-   4. TOOLKIT 4-COLUMN SYMMETRIC ARCHITECTURE
+   4. TOOLKIT SYMMETRIC DISPLAY MATRIX
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -347,7 +361,7 @@ body {
 }
 
 /* ==========================================================================
-   5. ASYMMETRIC GRID EDUCATION AREA
+   5. ASYMMETRIC EDUCATION AREA
    ========================================================================== */
 .nested-education-wrapper {
     margin-top: 6rem;
@@ -397,7 +411,7 @@ body {
 }
 
 /* ==========================================================================
-   6. CONTACT BLOCK FLUID BLEED OVERLAY
+   6. CONTACT BLOCK FLUID OVERLAY
    ========================================================================== */
 .contact-red-section {
     background-color: #FF4A22 !important;
@@ -496,7 +510,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. RESPONSIVE BREAKPOINTS (COLLAPSE MATRIX)
+   8. RESPONSIVE COLLAPSE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
     .hero-fold-wrapper, .main-content-wrapper { padding: 0 4vw; }
