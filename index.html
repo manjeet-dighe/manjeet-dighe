@@ -15,6 +15,8 @@
 
     <div class="grain"></div>
 
+    <canvas class="cursor-trail"></canvas>
+
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
@@ -211,31 +213,87 @@
     </footer>
 
     <script>
+        // -------------------------------------------------------------
+        // 1. HTML5 Canvas Route Tracing Configuration
+        // -------------------------------------------------------------
+        const canvas = document.querySelector('.cursor-trail');
+        const ctx = canvas.getContext('2d');
+        
+        let points = [];
+        const maxPoints = 60; // Controls trailing route length memory
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+        // -------------------------------------------------------------
+        // 2. Hardware Tracking & Easing Coordinate Systems
+        // -------------------------------------------------------------
         const dot = document.querySelector('.cursor-dot');
         const ring = document.querySelector('.cursor-ring');
 
-        let mouseX = 0, mouseY = 0;
+        let mouseX = -100, mouseY = -100; // Offscreen baseline parameters
         let ringX = 0, ringY = 0;
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            // Core positioning calculation for physical target dot
+            // Draw real-time pinpoint dot coordinate matrix
             dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+
+            // Push fresh vector path tracing coordinate array node
+            points.push({ x: mouseX, y: mouseY });
+            if (points.length > maxPoints) {
+                points.shift();
+            }
         });
 
-        function renderLerpPhysics() {
-            // 0.12 linear interpolation creates the subtle lag-behind tracking feel
+        // -------------------------------------------------------------
+        // 3. Main Animation Loop Engine (LERP Mechanics & Vector Path Rendering)
+        // -------------------------------------------------------------
+        function runVisualEngine() {
+            // Precise Linear Interpolation (0.12) to create smooth trailing ring elastic delay
             ringX += (mouseX - ringX) * 0.12;
             ringY += (mouseY - ringY) * 0.12;
-            
             ring.style.transform = `translate(${ringX - 10}px, ${ringY - 10}px)`;
-            requestAnimationFrame(renderLerpPhysics);
-        }
-        renderLerpPhysics();
 
-        // Magnetic Expansion Engine for Hover States over actionable layout tags
+            // Clear frame buffer to update active path
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (points.length > 1) {
+                ctx.beginPath();
+                ctx.moveTo(points[0].x, points[0].y);
+
+                // Construct fluid continuous quadratic bezier track curves 
+                for (let i = 1; i < points.length - 1; i++) {
+                    const xc = (points[i].x + points[i + 1].x) / 2;
+                    const yc = (points[i].y + points[i + 1].y) / 2;
+                    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+                }
+
+                // Render styles using Renzhi's signature orange trace configuration
+                ctx.strokeStyle = 'rgba(255, 74, 34, 0.28)'; 
+                ctx.lineWidth = 1.2; // Perfectly mimics her precise pixel line weight stroke path
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.stroke();
+            }
+
+            // Continuously age points when the mouse remains completely stationary
+            if (points.length > 0 && (points[points.length - 1].x === mouseX && points[points.length - 1].y === mouseY)) {
+                // Decay route trail linearly to maintain layout neatness
+                if (Math.random() > 0.4) points.shift(); 
+            }
+
+            requestAnimationFrame(runVisualEngine);
+        }
+        requestAnimationFrame(runVisualEngine);
+
+        // Magnetic Expansion Engine for Active Target Interactions
         document.querySelectorAll('a, .exp-tags span').forEach(interactiveElement => {
             interactiveElement.addEventListener('mouseenter', () => {
                 ring.style.transform = `scale(1.8)`;
