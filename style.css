@@ -20,12 +20,79 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    cursor: none; /* Disables raw hardware pointer to enable custom cursor profile */
 }
 
 .main-content-wrapper {
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 4rem;
+}
+
+/* ==========================================================================
+   1B. FILM GRAIN NOISE EMULATOR (From image_8ccc1c.png)
+   ========================================================================== */
+.grain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.015"/%3E%3C/svg%3E');
+    animation: grain-shift 8s steps(10) infinite;
+    pointer-events: none;
+    z-index: 9999; /* Floats over elements to add continuous analogue paper feel */
+}
+
+@keyframes grain-shift {
+    0%, 100% { transform:translate(0, 0); }
+    10% { transform:translate(-5%, -10%); }
+    20% { transform:translate(-15%, 5%); }
+    30% { transform:translate(7%, -25%); }
+    40% { transform:translate(-5%, 25%); }
+    50% { transform:translate(-15%, 10%); }
+    60% { transform:translate(15%, 0%); }
+    70% { transform:translate(0%, 15%); }
+    80% { transform:translate(3%, 35%); }
+    90% { transform:translate(-10%, 10%); }
+}
+
+/* ==========================================================================
+   1C. INTERACTIVE CURSOR MODULE ELEMENTS (From image_8ccc1c.png)
+   ========================================================================== */
+.cursor-dot {
+    width: 4px;
+    height: 4px;
+    background-color: #111111;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    will-change: transform;
+}
+
+.cursor-ring {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Disable pointers on touch platforms */
+@media (hover: none) and (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
 }
 
 /* ==========================================================================
@@ -57,8 +124,9 @@ body {
     margin-left: 3rem;
     font-size: 0.68rem;
     font-weight: 500;
-    letter-spacing: 0.22em; /* Broad editorial text character tracking */
+    letter-spacing: 0.22em; 
     transition: opacity 0.2s ease;
+    cursor: none;
 }
 
 .replica-nav a:hover {
@@ -75,13 +143,12 @@ body {
     position: relative;
 }
 
-/* Fluid compressed display font-sizing matching Renzhi's exact layout proportions */
 .replica-headline {
     font-family: "Newsreader", "Georgia", serif !important;
     font-size: clamp(2.5rem, 6.2vw, 5.8rem) !important; 
     font-weight: 400 !important;
     color: #111111 !important;
-    line-height: 1.05 !important; /* Ultra-condensed typographic tracking height */
+    line-height: 1.05 !important; 
     letter-spacing: -0.035em !important; 
     text-transform: none !important;
 }
@@ -106,7 +173,7 @@ body {
    3. REPLICATED EXPERIENCES STRUCTURE (Asymmetric Left-Void Layout)
    ========================================================================== */
 .inner-section {
-    padding-top: 11rem; /* Breathes via massive spacing thresholds */
+    padding-top: 11rem; 
     margin-bottom: 2rem;
 }
 
@@ -142,10 +209,9 @@ body {
     flex-direction: column;
 }
 
-/* Master row layout framework to achieve asymmetric balance splitting */
 .exp-row {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* 3-column balancing template */
+    grid-template-columns: 1fr 2fr 1fr; 
     gap: 2rem;
     padding: 4.5rem 0;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -155,11 +221,10 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Left structural block houses the structural alignment items */
 .exp-left-col {
-    grid-column: 1 / 3; /* Extends from the index to the center summary boundary */
+    grid-column: 1 / 3; 
     display: grid;
-    grid-template-columns: 60px 1fr; /* Strict structural column widths */
+    grid-template-columns: 60px 1fr; 
     gap: 3rem;
 }
 
@@ -187,18 +252,17 @@ body {
     margin-bottom: 1.8rem;
 }
 
-/* The exact font size, padding, color and tracking matching her portfolio text */
+/* CORRECTED SUMMARY TYPOGRAPHY (Micro-Fine, Highly Compressed Editorial Sizing) */
 .exp-description {
     font-family: "Inter", sans-serif !important;
-    font-size: 0.85rem !important; /* Tiny, precise typography size metric */
-    line-height: 1.75 !important; /* Fluid clear text tracking leading */
-    color: #555555 !important; /* Softer graphite shade */
-    max-width: 520px; /* Constraints bounding box footprint */
-    letter-spacing: -0.005em;
+    font-size: 0.78rem !important; /* Scaled down to match Renzhi's exact microtext profile */
+    line-height: 1.75 !important; /* Loose line height tracking */
+    color: #555555 !important; 
+    max-width: 480px; /* Snaps block width bounds */
+    letter-spacing: 0.015em !important; /* Sharp, micro-tracked kerning */
     margin-top: 0.5rem;
 }
 
-/* Right-most tracking properties alignment dock */
 .exp-right-col {
     grid-column: 3 / 4;
     display: flex;
@@ -241,7 +305,7 @@ body {
    ========================================================================== */
 .toolkit-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Snaps 4 rows cleanly across */
+    grid-template-columns: repeat(4, 1fr); 
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     margin-bottom: 6rem;
@@ -314,7 +378,7 @@ body {
 
 .edu-block {
     flex: 1;
-    max-width: 31%; /* Shares spatial constraints cleanly */
+    max-width: 31%; 
 }
 
 .edu-block h3 {
@@ -395,6 +459,7 @@ body {
     padding-bottom: 0.4rem;
     letter-spacing: -0.01em;
     transition: opacity 0.2s ease;
+    cursor: none;
 }
 
 .contact-main-email:hover {
@@ -412,6 +477,7 @@ body {
     color: rgba(255, 255, 255, 0.6) !important;
     text-decoration: none;
     transition: color 0.15s ease;
+    cursor: none;
 }
 
 .contact-sub-links a:hover {
