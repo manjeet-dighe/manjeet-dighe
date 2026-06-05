@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manjeet Dighe — Product Manager</title>
     
-    <!-- Premium Editorial Typography Stack -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
@@ -14,14 +13,11 @@
 </head>
 <body>
 
-    <!-- DYNAMIC BACKGROUND FILM GRAIN OVERLAY (From image_8ccc1c.png) -->
     <div class="grain"></div>
 
-    <!-- DYNAMIC INTERACTIVE CUSTOM CURSORS (From image_8ccc1c.png) -->
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
-    <!-- HERO FOLD (STATIC WRAPPER) -->
     <div class="hero-fold-wrapper">
         <header class="replica-header">
             <div class="header-logo"></div> 
@@ -44,10 +40,8 @@
         </section>
     </div>
 
-    <!-- MAIN PORTFOLIO WRAPPER -->
     <div class="main-content-wrapper">
 
-        <!-- WORK / EXPERIENCE SECTION -->
         <section id="experience" class="inner-section">
             <div class="section-divider-line"></div>
             <div class="section-tag-label">01 — EXPERIENCE</div>
@@ -55,7 +49,6 @@
             
             <div class="experience-list">
                 
-                <!-- JOB 01 -->
                 <div class="exp-row">
                     <div class="exp-left-col">
                         <span class="exp-number">01</span>
@@ -77,7 +70,6 @@
                     </div>
                 </div>
 
-                <!-- JOB 02 -->
                 <div class="exp-row">
                     <div class="exp-left-col">
                         <span class="exp-number">02</span>
@@ -98,7 +90,6 @@
                     </div>
                 </div>
 
-                <!-- JOB 03 -->
                 <div class="exp-row">
                     <div class="exp-left-col">
                         <span class="exp-number">03</span>
@@ -121,16 +112,12 @@
             </div>
         </section>
 
-        <!-- SKILLS & TOOLS SECTION -->
         <section id="skills" class="inner-section">
             <div class="section-divider-line"></div>
             <div class="section-tag-label">02 — TOOLKIT</div>
             <h2 class="section-main-title">Skills & Tools</h2>
             
-            <!-- 4-Column Grid matrix -->
             <div class="toolkit-grid">
-                
-                <!-- COL 1 -->
                 <div class="toolkit-col">
                     <span class="toolkit-col-title">CORE PM SKILLS</span>
                     <ul class="toolkit-list">
@@ -144,7 +131,6 @@
                     </ul>
                 </div>
 
-                <!-- COL 2 -->
                 <div class="toolkit-col">
                     <span class="toolkit-col-title">DATA & TECH</span>
                     <ul class="toolkit-list">
@@ -157,7 +143,6 @@
                     </ul>
                 </div>
 
-                <!-- COL 3 -->
                 <div class="toolkit-col">
                     <span class="toolkit-col-title">DOMAINS & COMPLIANCE</span>
                     <ul class="toolkit-list">
@@ -169,7 +154,6 @@
                     </ul>
                 </div>
 
-                <!-- COL 4 -->
                 <div class="toolkit-col">
                     <span class="toolkit-col-title">TOOLS & PLATFORMS</span>
                     <ul class="toolkit-list">
@@ -181,27 +165,22 @@
                         <li>Prompt Engineering</li>
                     </ul>
                 </div>
-
             </div>
 
-            <!-- NESTED EDUCATION DOCK -->
             <div class="nested-education-wrapper">
                 <span class="education-master-tag">EDUCATION</span>
                 
                 <div class="edu-row">
-                    <!-- School 01 -->
                     <div class="edu-block">
                         <h3>University of the Cumberlands</h3>
                         <p>Master’s in Project Management — USA, 2024</p>
                     </div>
 
-                    <!-- School 02 -->
                     <div class="edu-block">
                         <h3>New England College</h3>
                         <p>Master's in Computer & Information Systems — USA, 2020</p>
                     </div>
 
-                    <!-- School 03 -->
                     <div class="edu-block">
                         <h3>University of Mumbai</h3>
                         <p>Bachelor of Engineering in Computer Engineering — India, 2016</p>
@@ -212,7 +191,6 @@
 
     </div>
 
-    <!-- CONTACT BANNER -->
     <section id="contact-banner" class="contact-red-section">
         <div class="contact-container">
             <div class="contact-section-tag">03 — CONTACT</div>
@@ -228,12 +206,10 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Manjeet Dighe. All rights reserved.</p>
     </footer>
 
-    <!-- INTERACTIVE SCRIPT SYSTEM ENGINE FOR INTEGRATION SECTIONS -->
     <script>
         const dot = document.querySelector('.cursor-dot');
         const ring = document.querySelector('.cursor-ring');
@@ -245,31 +221,33 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            // Instantly snap the center point tracking coordinate dot
+            // Core positioning calculation for physical target dot
             dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
         });
 
-        function animateTrackers() {
-            // Apply linear interpolation easing factor (0.15) for smooth trailing tracking
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
+        function renderLerpPhysics() {
+            // 0.12 linear interpolation creates the subtle lag-behind tracking feel
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
             
             ring.style.transform = `translate(${ringX - 10}px, ${ringY - 10}px)`;
-            requestAnimationFrame(animateTrackers);
+            requestAnimationFrame(renderLerpPhysics);
         }
-        animateTrackers();
+        renderLerpPhysics();
 
-        // Magnetic Hover States over anchor links
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
+        // Magnetic Expansion Engine for Hover States over actionable layout tags
+        document.querySelectorAll('a, .exp-tags span').forEach(interactiveElement => {
+            interactiveElement.addEventListener('mouseenter', () => {
                 ring.style.transform = `scale(1.8)`;
                 ring.style.borderColor = '#FF4A22';
-                ring.style.backgroundColor = 'rgba(255, 74, 34, 0.05)';
+                ring.style.backgroundColor = 'rgba(255, 74, 34, 0.04)';
+                dot.style.backgroundColor = '#FF4A22';
             });
-            link.addEventListener('mouseleave', () => {
+            interactiveElement.addEventListener('mouseleave', () => {
                 ring.style.transform = `scale(1.0)`;
-                ring.style.borderColor = 'rgba(0, 0, 0, 0.3)';
+                ring.style.borderColor = 'rgba(0, 0, 0, 0.25)';
                 ring.style.backgroundColor = 'transparent';
+                dot.style.backgroundColor = '#111111';
             });
         });
     </script>
