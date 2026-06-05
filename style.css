@@ -12,19 +12,19 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     color: #111111;
-    background-color: #f9f8f6 !important; /* Uniform soft cream background from image_33eb76.png */
-    line-height: 1.6;
+    background-color: #f9f8f6 !important; /* Continuous exact cream tone */
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
-/* Master content centering alignment */
+/* Centered inner wrap */
 .main-content-wrapper {
-    max-width: 1200px;
+    max-width: 1160px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 3rem;
 }
 
 /* ==========================================================================
@@ -39,7 +39,7 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    padding: 0 4rem;
+    padding: 0 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,7 +49,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5rem 0;
+    padding: 3rem 0;
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
@@ -58,10 +58,10 @@ body {
 .replica-nav a {
     text-decoration: none;
     color: #111111 !important;
-    margin-left: 3rem;
-    font-size: 0.75rem !important;
+    margin-left: 2.5rem;
+    font-size: 0.68rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.25em !important;
+    letter-spacing: 0.2em !important; /* Exact nav letter tracking */
     transition: opacity 0.15s ease;
 }
 
@@ -73,81 +73,78 @@ body {
     max-width: 1100px;
     width: 100%;
     margin: auto auto cubic-bezier(0.1, 1, 0.1, 1) auto;
-    padding-bottom: 8rem;
+    padding-bottom: 10rem;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 2.5rem;
     position: relative;
 }
 
 .replica-headline {
-    font-family: "Georgia", "Times New Roman", serif !important;
-    font-size: 4.8rem !important;
+    font-family: "Newsreader", "Georgia", serif !important;
+    font-size: 5.2rem !important; /* Matches Renzhi's condensed editorial size */
     font-weight: 400 !important;
     color: #111111 !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.04em !important;
+    line-height: 1.02 !important; /* Ultra-compressed leading */
+    letter-spacing: -0.04em !important; /* Ultra-tight character tracking */
     text-transform: none !important;
 }
 
 .replica-headline em {
     font-style: italic !important;
-    font-family: "Georgia", "Times New Roman", serif !important;
+    font-family: "Newsreader", "Georgia", serif !important;
+    font-weight: 400 !important;
 }
 
 .replica-scroll {
     position: absolute;
-    bottom: -4rem;
+    bottom: -5rem;
     left: 0;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 500;
-    color: #888888;
-    letter-spacing: 0.3em;
+    color: #999999;
+    letter-spacing: 0.25em;
 }
 
 /* ==========================================================================
    3. INTERNAL STRUCTURAL SECTIONS (100% REPLICA FROM IMAGE_33EB76.PNG)
    ========================================================================== */
 .inner-section {
-    margin-top: 8rem;
-    margin-bottom: 4rem;
-}
-
-/* Light separation dividers spanning across layout columns */
-.section-divider-line {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.08);
-    margin-bottom: 2.5rem;
-}
-
-.section-tag-label {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.35);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
+    margin-top: 10rem;
     margin-bottom: 2rem;
 }
 
-/* Massive Serif Section Headings */
+.section-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08); /* Delicate separator rule */
+    margin-bottom: 2rem;
+}
+
+.section-tag-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #999999;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
 .section-main-title {
-    font-family: "Georgia", "Times New Roman", serif !important;
-    font-size: 5.5rem !important; /* Large "Work" design scale */
+    font-family: "Newsreader", "Georgia", serif !important;
+    font-size: 5.5rem !important; /* Matches "Work" title perfectly */
     font-weight: 400 !important;
     color: #111111 !important;
-    letter-spacing: -0.02em !important;
-    margin-bottom: 4rem !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 3.5rem !important;
     text-transform: none !important;
 }
 
-/* Experience List Layout Outer Framework */
 .experience-list {
     display: flex;
     flex-direction: column;
 }
 
-/* Row wrapper separating layout objects with thin border lines */
 .exp-row {
     display: flex;
     justify-content: space-between;
@@ -159,88 +156,89 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Left Content Column Configuration */
+/* Left Column Alignment Geometry */
 .exp-left-col {
     display: flex;
-    gap: 4rem;
+    gap: 5rem;
     flex: 1;
     max-width: 65%;
 }
 
 .exp-number {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.3);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    margin-top: 0.6rem;
+    color: #999999;
+    margin-top: 0.8rem;
 }
 
 .exp-job-details h3 {
-    font-family: "Georgia", "Times New Roman", serif !important;
-    font-size: 2.2rem !important; /* Elegant serif company header */
+    font-family: "Newsreader", "Georgia", serif !important;
+    font-size: 2.4rem !important;
     font-weight: 400 !important;
     color: #111111 !important;
     letter-spacing: -0.02em !important;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
 }
 
 .exp-role-title {
-    font-family: "Georgia", "Times New Roman", serif !important;
+    font-family: "Newsreader", "Georgia", serif !important;
     font-style: italic !important;
-    font-size: 1.1rem;
-    color: #333333;
+    font-size: 1.15rem;
+    color: #444444;
     margin-bottom: 1.5rem;
 }
 
 .exp-description {
-    font-family: "Courier New", Courier, monospace !important; /* Signature text layout style */
-    font-size: 0.95rem;
+    font-family: "Inter", sans-serif !important; /* Renzhi's clean modern sans layout style */
+    font-size: 0.88rem;
     line-height: 1.65;
     color: #555555;
+    max-width: 540px;
 }
 
-/* Right Content Column Configuration (Tags & Dates alignment) */
+/* Right Column Tags Alignment Geometry */
 .exp-right-col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    min-width: 250px;
+    min-width: 280px;
     text-align: right;
+    padding-top: 0.6rem;
 }
 
 .exp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
     justify-content: flex-end;
-    margin-bottom: 2rem;
+    max-width: 240px;
 }
 
-/* Red-orange outline skills tags */
 .exp-tags span {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.65rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.58rem;
     font-weight: 600;
-    color: #FF4A22 !important; /* Red orange tone */
-    border: 1px solid #FF4A22 !important; /* Matching outline box */
-    padding: 0.35rem 0.7rem;
+    color: #FF4A22 !important; /* Precise Red-Orange accent */
+    border: 1px solid rgba(255, 74, 34, 0.4) !important; /* Refined fine borders */
+    padding: 0.3rem 0.6rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     border-radius: 2px;
 }
 
 .exp-date {
-    font-family: "Courier New", Courier, monospace !important;
-    font-size: 0.85rem;
-    color: #666666;
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    color: #888888;
+    letter-spacing: -0.01em;
 }
 
 /* ==========================================================================
    4. CONTACT RED SECTION BANNER (From image_4d6ea9.png)
    ========================================================================== */
 .contact-red-section {
-    background-color: #FF4A22 !important;
+    background-color: #FF4A22 !important; /* Premium branding hue */
     max-width: 100% !important;
     width: 100vw;
     position: relative;
@@ -248,9 +246,9 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-top: 10rem;
+    margin-top: 12rem;
     margin-bottom: 0 !important;
-    padding: 8rem 0;
+    padding: 9rem 0;
     text-align: center;
 }
 
@@ -264,52 +262,57 @@ body {
 }
 
 .contact-section-tag {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.4);
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     margin-bottom: 2.5rem;
 }
 
 .contact-title {
-    font-family: "Georgia", "Times New Roman", serif !important;
-    font-size: 5.5rem !important;
-    font-weight: 500 !important;
+    font-family: "Newsreader", "Georgia", serif !important;
+    font-size: 6rem !important;
+    font-weight: 400 !important;
     color: #111111 !important;
-    letter-spacing: -0.02em !important;
-    margin-bottom: 3rem !important;
+    letter-spacing: -0.04em !important;
+    margin-bottom: 3.5rem !important;
 }
 
 .contact-email-wrapper {
-    margin-bottom: 4.5rem;
+    margin-bottom: 4rem;
 }
 
 .contact-main-email {
-    font-family: "Courier New", Courier, monospace !important;
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-family: "Inter", sans-serif !important;
+    font-size: 1.15rem;
+    font-weight: 500;
     color: #ffffff !important;
     text-decoration: none;
-    border-bottom: 1.5px solid rgba(255, 255, 255, 0.75);
-    padding-bottom: 0.5rem;
-    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    padding-bottom: 0.3rem;
+    letter-spacing: -0.01em;
 }
 
 .contact-sub-links {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .contact-sub-links a {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.contact-sub-links a:hover {
+    color: #ffffff !important;
 }
 
 .contact-sub-links .divider {
-    margin: 0 0.6rem;
-    color: rgba(255, 255, 255, 0.3);
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.25);
 }
 
 /* ==========================================================================
@@ -318,31 +321,31 @@ body {
 footer {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem;
+    padding: 5rem 3rem;
     text-align: left;
     color: #999999;
-    font-size: 0.85rem;
-    background-color: #f9f8f6; /* Matching cream background */
+    font-size: 0.78rem;
+    background-color: #f9f8f6;
 }
 
 /* ==========================================================================
    6. RESPONSIVE UTILITIES / SCALING BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
-    .replica-headline { font-size: 3.4rem !important; }
+    .replica-headline { font-size: 3.6rem !important; }
     .hero-fold-wrapper, .main-content-wrapper { padding: 0 2rem; }
     .section-main-title { font-size: 4rem !important; }
-    .exp-left-col { max-width: 60%; gap: 2rem; }
+    .exp-left-col { max-width: 60%; gap: 2.5rem; }
 }
 
 @media (max-width: 768px) {
-    .replica-headline { font-size: 2.3rem !important; line-height: 1.15 !important; }
-    .replica-hero { gap: 2.5rem; padding-bottom: 4rem; }
-    .section-main-title { font-size: 3.5rem !important; margin-bottom: 2.5rem !important; }
-    .exp-row { flex-direction: column; gap: 2rem; padding: 2rem 0; }
+    .replica-headline { font-size: 2.4rem !important; line-height: 1.1 !important; }
+    .replica-hero { gap: 2rem; padding-bottom: 4rem; }
+    .section-main-title { font-size: 3.2rem !important; margin-bottom: 2rem !important; }
+    .exp-row { flex-direction: column; gap: 1.5rem; padding: 2rem 0; }
     .exp-left-col { max-width: 100%; gap: 1.5rem; }
-    .exp-job-details h3 { font-size: 1.8rem !important; }
-    .exp-right-col { align-items: flex-start; text-align: left; min-width: auto; }
+    .exp-job-details h3 { font-size: 1.9rem !important; }
+    .exp-right-col { align-items: flex-start; text-align: left; min-width: auto; padding-left: 2rem; }
     .exp-tags { justify-content: flex-start; margin-bottom: 1rem; }
-    .contact-title { font-size: 3.6rem !important; }
+    .contact-title { font-size: 3.4rem !important; }
 }
