@@ -14,6 +14,13 @@
 </head>
 <body>
 
+    <!-- DYNAMIC BACKGROUND FILM GRAIN OVERLAY (From image_8ccc1c.png) -->
+    <div class="grain"></div>
+
+    <!-- DYNAMIC INTERACTIVE CUSTOM CURSORS (From image_8ccc1c.png) -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- HERO FOLD (STATIC WRAPPER) -->
     <div class="hero-fold-wrapper">
         <header class="replica-header">
@@ -114,7 +121,7 @@
             </div>
         </section>
 
-        <!-- SKILLS & TOOLS SECTION (100% MATCH TO IMAGE_A88AC7.PNG) -->
+        <!-- SKILLS & TOOLS SECTION -->
         <section id="skills" class="inner-section">
             <div class="section-divider-line"></div>
             <div class="section-tag-label">02 — TOOLKIT</div>
@@ -205,7 +212,7 @@
 
     </div>
 
-    <!-- CONTACT BANNER (COLOR FILL EXTENSION) -->
+    <!-- CONTACT BANNER -->
     <section id="contact-banner" class="contact-red-section">
         <div class="contact-container">
             <div class="contact-section-tag">03 — CONTACT</div>
@@ -226,5 +233,45 @@
         <p>&copy; 2026 Manjeet Dighe. All rights reserved.</p>
     </footer>
 
+    <!-- INTERACTIVE SCRIPT SYSTEM ENGINE FOR INTEGRATION SECTIONS -->
+    <script>
+        const dot = document.querySelector('.cursor-dot');
+        const ring = document.querySelector('.cursor-ring');
+
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Instantly snap the center point tracking coordinate dot
+            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        function animateTrackers() {
+            // Apply linear interpolation easing factor (0.15) for smooth trailing tracking
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            
+            ring.style.transform = `translate(${ringX - 10}px, ${ringY - 10}px)`;
+            requestAnimationFrame(animateTrackers);
+        }
+        animateTrackers();
+
+        // Magnetic Hover States over anchor links
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                ring.style.transform = `scale(1.8)`;
+                ring.style.borderColor = '#FF4A22';
+                ring.style.backgroundColor = 'rgba(255, 74, 34, 0.05)';
+            });
+            link.addEventListener('mouseleave', () => {
+                ring.style.transform = `scale(1.0)`;
+                ring.style.borderColor = 'rgba(0, 0, 0, 0.3)';
+                ring.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
 </body>
 </html>
