@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CORE RENDERING ENGINE & CANVAS COLORS
+   1. CORE RENDERING ENGINE & EDITORIAL SYSTEM CANVAS
    ========================================================================== */
 * {
     margin: 0;
@@ -15,22 +15,22 @@ html {
 body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     color: #111111;
-    background-color: #f9f8f6 !important; /* Authentic fluid cream texture canvas */
+    background-color: #f9f8f6 !important; /* Matches raw paper background hex */
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    cursor: none; /* Disables raw hardware pointer to enable custom cursor profile */
+    cursor: none; /* Masks system cursor to draw high-end layout replacement pointer */
 }
 
 .main-content-wrapper {
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 5vw;
 }
 
 /* ==========================================================================
-   1B. FILM GRAIN NOISE EMULATOR (From image_8ccc1c.png)
+   1B. HIGH-PERFORMANCE NOISE TEXTURE EMULATOR
    ========================================================================== */
 .grain {
     position: fixed;
@@ -40,13 +40,13 @@ body {
     bottom: -50%;
     width: 200%;
     height: 200%;
-    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.015"/%3E%3C/svg%3E');
-    animation: grain-shift 8s steps(10) infinite;
+    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.018"/%3E%3C/svg%3E');
+    animation: grain-physics 7s steps(8) infinite;
     pointer-events: none;
-    z-index: 9999; /* Floats over elements to add continuous analogue paper feel */
+    z-index: 9999;
 }
 
-@keyframes grain-shift {
+@keyframes grain-physics {
     0%, 100% { transform:translate(0, 0); }
     10% { transform:translate(-5%, -10%); }
     20% { transform:translate(-15%, 5%); }
@@ -60,7 +60,7 @@ body {
 }
 
 /* ==========================================================================
-   1C. INTERACTIVE CURSOR MODULE ELEMENTS (From image_8ccc1c.png)
+   1C. LERP STRUCTURAL CURSOR GRAPHICS 
    ========================================================================== */
 .cursor-dot {
     width: 4px;
@@ -86,23 +86,21 @@ body {
     pointer-events: none;
     z-index: 9999;
     will-change: transform;
-    transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Disable pointers on touch platforms */
 @media (hover: none) and (pointer: coarse) {
     body { cursor: auto; }
     .cursor-dot, .cursor-ring { display: none; }
 }
 
 /* ==========================================================================
-   2. STATIC HEADER & HERO FLUID MATRIX
+   2. HERO HEADER & ASYMMETRIC DISPLAY OVERLAYS
    ========================================================================== */
 .hero-fold-wrapper {
     background-color: #f9f8f6 !important;
     min-height: 100vh;
     width: 100%;
-    padding: 0 4rem;
+    padding: 0 5vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -112,8 +110,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.5rem 0;
-    max-width: 1160px;
+    padding: 4rem 0;
     width: 100%;
     margin: 0 auto;
 }
@@ -121,7 +118,7 @@ body {
 .replica-nav a {
     text-decoration: none;
     color: #111111 !important;
-    margin-left: 3rem;
+    margin-left: 3.5rem;
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.22em; 
@@ -129,28 +126,26 @@ body {
     cursor: none;
 }
 
-.replica-nav a:hover {
-    opacity: 0.5;
-}
+.replica-nav a:hover { opacity: 0.5; }
 
 .replica-hero {
-    max-width: 1160px;
     width: 100%;
-    margin: auto auto 8rem auto;
+    margin: auto auto 10rem auto;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 4rem;
     position: relative;
 }
 
 .replica-headline {
     font-family: "Newsreader", "Georgia", serif !important;
-    font-size: clamp(2.5rem, 6.2vw, 5.8rem) !important; 
+    font-size: clamp(2.4rem, 5.8vw, 5.4rem) !important; 
     font-weight: 400 !important;
     color: #111111 !important;
-    line-height: 1.05 !important; 
-    letter-spacing: -0.035em !important; 
+    line-height: 1.1 !important; 
+    letter-spacing: -0.03em !important; 
     text-transform: none !important;
+    max-width: 85%;
 }
 
 .replica-headline em {
@@ -161,7 +156,7 @@ body {
 
 .replica-scroll {
     position: absolute;
-    bottom: -4rem;
+    bottom: -5rem;
     left: 0;
     font-size: 0.62rem;
     font-weight: 500;
@@ -170,10 +165,10 @@ body {
 }
 
 /* ==========================================================================
-   3. REPLICATED EXPERIENCES STRUCTURE (Asymmetric Left-Void Layout)
+   3. ASYMMETRIC EXPERIENCES GRID SYSTEM (EXACT REPLICATION)
    ========================================================================== */
 .inner-section {
-    padding-top: 11rem; 
+    padding-top: 12rem; 
     margin-bottom: 2rem;
 }
 
@@ -181,7 +176,7 @@ body {
     width: 100%;
     height: 1px;
     background-color: rgba(0, 0, 0, 0.08);
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .section-tag-label {
@@ -190,7 +185,7 @@ body {
     color: #999999;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .section-main-title {
@@ -199,7 +194,7 @@ body {
     font-weight: 400 !important;
     color: #111111 !important;
     letter-spacing: -0.03em !important;
-    margin-bottom: 4.5rem !important;
+    margin-bottom: 5rem !important;
     text-transform: none !important;
     line-height: 1.0;
 }
@@ -209,11 +204,12 @@ body {
     flex-direction: column;
 }
 
+/* Mirrors Renzhi's exact 3-column structural layout asymmetry */
 .exp-row {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; 
-    gap: 2rem;
-    padding: 4.5rem 0;
+    grid-template-columns: 1.2fr 1.8fr 1fr; 
+    gap: 3rem;
+    padding: 5rem 0;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -224,8 +220,8 @@ body {
 .exp-left-col {
     grid-column: 1 / 3; 
     display: grid;
-    grid-template-columns: 60px 1fr; 
-    gap: 3rem;
+    grid-template-columns: 80px 1fr; 
+    gap: 4rem;
 }
 
 .exp-number {
@@ -237,29 +233,29 @@ body {
 
 .exp-job-details h3 {
     font-family: "Newsreader", "Georgia", serif !important;
-    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+    font-size: clamp(1.8rem, 3.2vw, 2.8rem) !important;
     font-weight: 400 !important;
     color: #111111 !important;
     letter-spacing: -0.02em !important;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 }
 
 .exp-role-title {
     font-family: "Newsreader", "Georgia", serif !important;
     font-style: italic !important;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #444444;
-    margin-bottom: 1.8rem;
+    margin-bottom: 2.2rem;
 }
 
-/* CORRECTED SUMMARY TYPOGRAPHY (Micro-Fine, Highly Compressed Editorial Sizing) */
+/* Identical text rendering parameters matching her microscopic styling */
 .exp-description {
     font-family: "Inter", sans-serif !important;
-    font-size: 0.78rem !important; /* Scaled down to match Renzhi's exact microtext profile */
-    line-height: 1.75 !important; /* Loose line height tracking */
+    font-size: 0.78rem !important; 
+    line-height: 1.8 !important; 
     color: #555555 !important; 
-    max-width: 480px; /* Snaps block width bounds */
-    letter-spacing: 0.015em !important; /* Sharp, micro-tracked kerning */
+    max-width: 490px; 
+    letter-spacing: 0.015em !important; 
     margin-top: 0.5rem;
 }
 
@@ -276,9 +272,9 @@ body {
 .exp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.5rem;
     justify-content: flex-end;
-    max-width: 240px;
+    max-width: 260px;
 }
 
 .exp-tags span {
@@ -286,7 +282,7 @@ body {
     font-size: 0.58rem;
     font-weight: 600;
     color: #FF4A22 !important;
-    border: 1px solid rgba(255, 74, 34, 0.3) !important;
+    border: 1px solid rgba(255, 74, 34, 0.25) !important;
     padding: 0.35rem 0.65rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -301,19 +297,19 @@ body {
 }
 
 /* ==========================================================================
-   4. SKILLS & TOOLS 4-COLUMN MATRIX (From image_a88ac7.png)
+   4. TOOLKIT 4-COLUMN SYMMETRIC ARCHITECTURE
    ========================================================================== */
 .toolkit-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    margin-bottom: 6rem;
+    margin-bottom: 7rem;
 }
 
 .toolkit-col {
     border-left: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 0 1.8rem 4rem 1.8rem;
+    padding: 0 2rem 5rem 2rem;
 }
 
 .toolkit-col:last-child {
@@ -327,7 +323,7 @@ body {
     font-weight: 600;
     color: #FF4A22;
     letter-spacing: 0.18em;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     text-transform: uppercase;
 }
 
@@ -341,7 +337,7 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 0.86rem;
     color: #222222;
-    padding: 0.8rem 0;
+    padding: 0.85rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     letter-spacing: -0.01em;
 }
@@ -351,10 +347,10 @@ body {
 }
 
 /* ==========================================================================
-   5. NESTED EDUCATION DOCK (From image_a88ac7.png)
+   5. ASYMMETRIC GRID EDUCATION AREA
    ========================================================================== */
 .nested-education-wrapper {
-    margin-top: 5rem;
+    margin-top: 6rem;
     padding-top: 1rem;
     text-align: left;
 }
@@ -367,12 +363,12 @@ body {
     color: #FF4A22;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .edu-row {
     display: flex;
-    gap: 3.5rem;
+    gap: 4rem;
     justify-content: space-between;
 }
 
@@ -383,13 +379,13 @@ body {
 
 .edu-block h3 {
     font-family: "Newsreader", "Georgia", serif !important;
-    font-size: 1.45rem !important;
+    font-size: 1.5rem !important;
     font-weight: 400 !important;
     font-style: italic !important;
     color: #111111 !important;
     letter-spacing: -0.01em !important;
-    margin-bottom: 0.6rem;
-    line-height: 1.25;
+    margin-bottom: 0.7rem;
+    line-height: 1.3;
 }
 
 .edu-block p {
@@ -401,7 +397,7 @@ body {
 }
 
 /* ==========================================================================
-   6. CONTACT COLOR WAVE FLOUT (Full Screen Spread Width)
+   6. CONTACT BLOCK FLUID BLEED OVERLAY
    ========================================================================== */
 .contact-red-section {
     background-color: #FF4A22 !important;
@@ -412,14 +408,14 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-top: 14rem;
+    margin-top: 15rem;
     margin-bottom: 0 !important;
-    padding: 10rem 0;
+    padding: 12rem 0;
     text-align: center;
 }
 
 .contact-container {
-    max-width: 1160px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -432,39 +428,37 @@ body {
     font-weight: 500;
     color: rgba(0, 0, 0, 0.4);
     letter-spacing: 0.2em;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .contact-title {
     font-family: "Newsreader", "Georgia", serif !important;
-    font-size: clamp(3.5rem, 8vw, 6.5rem) !important;
+    font-size: clamp(3.8rem, 8.5vw, 7rem) !important;
     font-weight: 400 !important;
     color: #111111 !important;
     letter-spacing: -0.04em !important;
-    margin-bottom: 3.5rem !important;
+    margin-bottom: 4rem !important;
     line-height: 1.0;
 }
 
 .contact-email-wrapper {
-    margin-bottom: 4.5rem;
+    margin-bottom: 5rem;
 }
 
 .contact-main-email {
     font-family: "Inter", sans-serif !important;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #ffffff !important;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 0.5rem;
     letter-spacing: -0.01em;
     transition: opacity 0.2s ease;
     cursor: none;
 }
 
-.contact-main-email:hover {
-    opacity: 0.8;
-}
+.contact-main-email:hover { opacity: 0.8; }
 
 .contact-sub-links {
     font-size: 0.68rem;
@@ -480,22 +474,20 @@ body {
     cursor: none;
 }
 
-.contact-sub-links a:hover {
-    color: #ffffff !important;
-}
+.contact-sub-links a:hover { color: #ffffff !important; }
 
 .contact-sub-links .divider {
-    margin: 0 0.6rem;
+    margin: 0 0.7rem;
     color: rgba(255, 255, 255, 0.2);
 }
 
 /* ==========================================================================
-   7. SITE FOOTER
+   7. PLATFORM FOOTER
    ========================================================================== */
 footer {
-    max-width: 1160px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 6rem 4rem;
+    padding: 7rem 5vw;
     text-align: left;
     color: #999999;
     font-size: 0.76rem;
@@ -504,15 +496,16 @@ footer {
 }
 
 /* ==========================================================================
-   8. RESPONSIVE BREAKPOINTS (Fluid Collapse States)
+   8. RESPONSIVE BREAKPOINTS (COLLAPSE MATRIX)
    ========================================================================== */
 @media (max-width: 1024px) {
-    .hero-fold-wrapper, .main-content-wrapper { padding: 0 2.5rem; }
+    .hero-fold-wrapper, .main-content-wrapper { padding: 0 4vw; }
     .exp-row {
         grid-template-columns: 1fr;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        padding: 4rem 0;
     }
     .exp-left-col {
         grid-template-columns: 40px 1fr;
@@ -530,16 +523,16 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .replica-header { padding: 2.5rem 0; }
-    .replica-nav a { margin-left: 1.5rem; font-size: 0.62rem; }
-    .replica-hero { gap: 2rem; margin-bottom: 4rem; }
-    .inner-section { padding-top: 6rem; }
+    .replica-header { padding: 3rem 0; }
+    .replica-nav a { margin-left: 1.8rem; font-size: 0.62rem; }
+    .replica-hero { gap: 2.5rem; margin-bottom: 5rem; }
+    .inner-section { padding-top: 7rem; }
     .exp-tags { justify-content: flex-start; }
 }
 
 @media (max-width: 550px) {
     .toolkit-grid { grid-template-columns: 1fr; }
-    .toolkit-col { border-left: none; border-right: none; padding: 1rem 0 2.5rem 0; }
+    .toolkit-col { border-left: none; border-right: none; padding: 1rem 0 3rem 0; }
     .hero-fold-wrapper, .main-content-wrapper { padding: 0 1.5rem; }
     .exp-right-col { padding-left: 0; }
 }
