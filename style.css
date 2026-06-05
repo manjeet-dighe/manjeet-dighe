@@ -14,7 +14,7 @@ html {
 body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     color: #111111;
-    background-color: #f9f8f6 !important; /* Continuous exact cream tone */
+    background-color: #f9f8f6 !important; /* Continuous exact cream tone across entire site */
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -132,7 +132,7 @@ body {
 
 .section-main-title {
     font-family: "Newsreader", "Georgia", serif !important;
-    font-size: 5.5rem !important; /* Matches "Work" title perfectly */
+    font-size: 5.5rem !important; /* Matches "Work" and "Skills & Tools" sizes perfectly */
     font-weight: 400 !important;
     color: #111111 !important;
     letter-spacing: -0.03em !important;
@@ -235,7 +235,109 @@ body {
 }
 
 /* ==========================================================================
-   4. CONTACT RED SECTION BANNER (From image_4d6ea9.png)
+   4. SKILLS & TOOLS 4-COLUMN REPLICA GRID STYLING (From image_a88ac7.png)
+   ========================================================================== */
+.toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 identical columns layout */
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 5rem;
+}
+
+.toolkit-col {
+    border-left: 1px solid rgba(0, 0, 0, 0.08); /* Grid vertical split lines */
+    padding: 0 1.5rem 3rem 1.5rem;
+}
+
+.toolkit-col:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.08); /* Closes right bounding box edge */
+}
+
+/* Red-orange column tag headers */
+.toolkit-col-title {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #FF4A22; /* Signature orange text fill */
+    letter-spacing: 0.18em;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.toolkit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toolkit-list li {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.9rem;
+    color: #333333;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04); /* Soft separator item ticks */
+    letter-spacing: -0.01em;
+}
+
+.toolkit-list li:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   5. NESTED EDUCATION DOCK STYLING (From image_a88ac7.png)
+   ========================================================================== */
+.nested-education-wrapper {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.education-master-tag {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #FF4A22;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+.edu-row {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+}
+
+.edu-block {
+    flex: 1;
+    max-width: 31%; /* Accommodates 3 items across neatly */
+}
+
+/* Mixed Serif text styling matching image layout properties */
+.edu-block h3 {
+    font-family: "Newsreader", "Georgia", serif !important;
+    font-size: 1.45rem !important;
+    font-weight: 400 !important;
+    font-style: italic !important; /* Italicized school headings */
+    color: #111111 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.edu-block p {
+    font-family: "Inter", sans-serif !important; /* Crisp, readable detail description line */
+    font-size: 0.82rem;
+    color: #666666;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   6. CONTACT RED SECTION BANNER (From image_4d6ea9.png)
    ========================================================================== */
 .contact-red-section {
     background-color: #FF4A22 !important; /* Premium branding hue */
@@ -316,7 +418,7 @@ body {
 }
 
 /* ==========================================================================
-   5. STANDARD FOOTER ARCHITECTURE
+   7. STANDARD FOOTER ARCHITECTURE
    ========================================================================== */
 footer {
     max-width: 1100px;
@@ -329,13 +431,17 @@ footer {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE UTILITIES / SCALING BREAKPOINTS
+   8. RESPONSIVE UTILITIES / SCALING BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
     .replica-headline { font-size: 3.6rem !important; }
     .hero-fold-wrapper, .main-content-wrapper { padding: 0 2rem; }
     .section-main-title { font-size: 4rem !important; }
     .exp-left-col { max-width: 60%; gap: 2.5rem; }
+    .toolkit-grid { grid-template-columns: repeat(2, 1fr); }
+    .toolkit-col { border-right: 1px solid rgba(0, 0, 0, 0.08); border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
+    .edu-row { flex-direction: column; gap: 2.5rem; }
+    .edu-block { max-width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -348,4 +454,9 @@ footer {
     .exp-right-col { align-items: flex-start; text-align: left; min-width: auto; padding-left: 2rem; }
     .exp-tags { justify-content: flex-start; margin-bottom: 1rem; }
     .contact-title { font-size: 3.4rem !important; }
+}
+
+@media (max-width: 550px) {
+    .toolkit-grid { grid-template-columns: 1fr; }
+    .toolkit-col { border-left: none; border-right: none; padding: 1rem 0 2rem 0; }
 }
