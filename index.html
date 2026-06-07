@@ -4,206 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manjeet Dighe — Product Manager</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="custom-cursor" id="js-cursor"></div>
+    <div class="grain"></div>
 
-    <div id="root">
-        <div class="site">
-            
-            <header>
-                <div class="nav-logo">
-                    <a href="#" class="interactive-target">manjeet.dighe</a>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#about" class="interactive-target">About</a></li>
-                        <li><a href="#experience" class="interactive-target">Work</a></li>
-                        <li><a href="#toolkit" class="interactive-target">Skills</a></li>
-                        <li><a href="#contact" class="interactive-target">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
+    <canvas class="cursor-trail"></canvas>
 
-            <main>
-                <section class="hero-fold" id="about">
-                    <h1 class="hero-statement">
-                        Manjeet is a <span>product manager</span> and <span>problem solver</span> based in Mumbai, India. He builds <span>scalable platforms</span> and <span>AI integrations</span> at Optum.
-                    </h1>
-                    <div class="scroll-indicator">
-                        Scroll ↓
-                    </div>
-                </section>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
 
-                <section class="section-block" id="experience">
-                    <div class="section-header">
-                        <span class="section-tag">scroll 01 — Experience</span>
-                        <h2 class="section-title">Work</h2>
-                    </div>
-                    <div class="work-list">
-                        
-                        <div class="work-item">
-                            <div class="work-meta">
-                                <span class="work-index">01</span>
-                                <h3 class="work-company">Optum</h3>
-                                <span class="work-timeline">2025 — Present</span>
-                            </div>
-                            <h4 class="work-role">Product Manager (Contract)</h4>
-                            <p class="work-description">
-                                Building 0-to-1 architecture for the Member Activation B2B SaaS platform after legacy data loss. Authored comprehensive PRDs and designed an ECG-based intake system securely processing 100M+ healthcare records under strict HIPAA/PHI guidelines. Pushed sprint on-time delivery from 70% to 90% by leading Microsoft and GitHub Copilot rollouts across engineering squads.
-                            </p>
-                            <div class="work-tags">
-                                <span class="tag">SaaS</span>
-                                <span class="tag">Roadmap</span>
-                                <span class="tag">HIPAA</span>
-                                <span class="tag">PRD</span>
-                                <span class="tag">AI Copilot</span>
-                            </div>
-                        </div>
+    <div class="hero-fold-wrapper">
+        <header class="replica-header">
+            <div class="header-logo"></div> 
+            <nav class="replica-nav">
+                <a href="#about">ABOUT</a>
+                <a href="#experience">WORK</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#contact-banner">CONTACT</a>
+            </nav>
+        </header>
 
-                        <div class="work-item">
-                            <div class="work-meta">
-                                <span class="work-index">02</span>
-                                <h3 class="work-company">Change Healthcare</h3>
-                                <span class="work-timeline">2021 — 2025</span>
-                            </div>
-                            <h4 class="work-role">Business Systems Analyst</h4>
-                            <p class="work-description">
-                                Managed technical workflows, requirement elicitation, and data mapping specifications for large-scale healthcare integrations. Configured automated CMS report ingestion pipelines processing 100k+ records per file to guarantee billing accuracy and triaged live system workflows to cut manual overhead.
-                            </p>
-                            <div class="work-tags">
-                                <span class="tag">SQL</span>
-                                <span class="tag">Data Mapping</span>
-                                <span class="tag">CMS</span>
-                                <span class="tag">Agile</span>
-                            </div>
-                        </div>
-
-                        <div class="work-item">
-                            <div class="work-meta">
-                                <span class="work-index">03</span>
-                                <h3 class="work-company">Colsh Consultants</h3>
-                                <span class="work-timeline">2020 — 2021</span>
-                            </div>
-                            <h4 class="work-role">Business Systems Analyst</h4>
-                            <p class="work-description">
-                                Gathered and documented end-to-end technical requirement documentation and led user acceptance testing (UAT) execution loops across engineering squads to ensure 100% criteria alignment before deployment.
-                            </p>
-                            <div class="work-tags">
-                                <span class="tag">UAT Testing</span>
-                                <span class="tag">Jira</span>
-                                <span class="tag">Requirements</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <section class="section-block" id="toolkit">
-                    <div class="section-header">
-                        <span class="section-tag">02 — Toolkit</span>
-                        <h2 class="section-title">Skills & Tools</h2>
-                    </div>
-                    <div class="skills-grid">
-                        
-                        <div>
-                            <h3 class="skills-category-title">Core PM Skills</h3>
-                            <ul class="skills-list">
-                                <li>0-to-1 Product Launch</li>
-                                <li>Product Roadmap Strategy</li>
-                                <li>MVP Definition</li>
-                                <li>PRD Writing</li>
-                                <li>Requirement Elicitation</li>
-                                <li>Agile / Scrum Delivery</li>
-                                <li>User Acceptance Testing (UAT)</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="skills-category-title">Data & Tech</h3>
-                            <ul class="skills-list">
-                                <li>SQL Data Mapping</li>
-                                <li>Technical Frameworks</li>
-                                <li>API Documentation</li>
-                                <li>System Architecture</li>
-                                <li>Automated Data Pipelines</li>
-                                <li>B2B SaaS Architecture</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="skills-category-title">Domains & Compliance</h3>
-                            <ul class="skills-list">
-                                <li>Healthcare IT Platforms</li>
-                                <li>HIPAA Guidelines</li>
-                                <li>PHI Data Security</li>
-                                <li>CMS Ingestion Workflows</li>
-                                <li>System Integrations</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="skills-category-title">Tools & Platforms</h3>
-                            <ul class="skills-list">
-                                <li>Jira / Confluence</li>
-                                <li>Microsoft Copilot</li>
-                                <li>GitHub Copilot</li>
-                                <li>Claude AI Systems</li>
-                                <li>Google AI Tools</li>
-                                <li>Prompt Engineering</li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                    <div class="education-wrapper">
-                        <div>
-                            <span class="section-tag" style="display:block; margin-bottom:1.5rem;">Education</span>
-                        </div>
-                        <div class="edu-item">
-                            <h4 class="edu-institution">University of the Cumberlands</h4>
-                            <p class="edu-degree">Master’s in Project Management — USA, 2024</p>
-                        </div>
-                        <div class="edu-item">
-                            <h4 class="edu-institution">New England College</h4>
-                            <p class="edu-degree">Master's in Computer & Information Systems — USA, 2020</p>
-                        </div>
-                        <div class="edu-item">
-                            <h4 class="edu-institution">University of Mumbai</h4>
-                            <p class="edu-degree">Bachelor of Engineering in Computer Engineering — India, 2016</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section-block" id="contact">
-                    <div class="section-header">
-                        <span class="section-tag">03 — Contact</span>
-                        <h2 class="section-title">Let's Talk</h2>
-                    </div>
-                    <div class="contact-content">
-                        <a href="mailto:dighemanjit@gmail.com" class="contact-trigger interactive-target">dighemanjit@gmail.com</a>
-                        <div class="contact-links">
-                            <a href="https://linkedin.com/in/manjeet-dighe" target="_blank" rel="noopener noreferrer" class="interactive-target">LinkedIn</a>
-                            <a href="mailto:dighemanjit@gmail.com" class="interactive-target">Email</a>
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <footer>
-                <div>© 2026 Manjeet Dighe</div>
-                <div>Designed & Engineered with Clarity</div>
-            </footer>
-
-        </div>
+        <section id="about" class="replica-hero">
+            <h1 class="replica-headline">
+                Manjeet is a <em>product manager</em> and <em>problem solver</em> based in Mumbai, India.
+            </h1>
+            <h1 class="replica-headline">
+                He builds <em>scalable platforms</em> and <em>AI integrations</em> at Optum, with a background from University of the Cumberlands.
+            </h1>
+            <div class="replica-scroll">SCROLL &darr;</div>
+        </section>
     </div>
 
-    <script src="script.js"></script>
+    <div class="main-content-wrapper">
+
+        <section id="experience" class="inner-section">
+            <div class="section-divider-line"></div>
+            <div class="section-tag-label">01 — EXPERIENCE</div>
+            <h2 class="section-main-title">Work</h2>
+            
+            <div class="experience-list">
+                
+                <div class="exp-row">
+                    <div class="exp-left-col">
+                        <span class="exp-number">01</span>
+                        <div class="exp-job-details">
+                            <h3>Optum</h3>
+                            <p class="exp-role-title">Product Manager (Contract)</p>
+                            <p class="exp-description">Building 0-to-1 architecture for the Member Activation B2B SaaS platform after legacy data loss. Authored comprehensive PRDs and designed an ECG-based intake system securely processing 100M+ healthcare records under strict HIPAA/PHI guidelines. Pushed sprint on-time delivery from 70% to 90% by leading Microsoft and GitHub Copilot rollouts across engineering squads.</p>
+                        </div>
+                    </div>
+                    <div class="exp-right-col">
+                        <div class="exp-tags">
+                            <span>SAAS</span>
+                            <span>ROADMAP</span>
+                            <span>HIPAA</span>
+                            <span>PRD</span>
+                            <span>AI COPILOT</span>
+                        </div>
+                        <div class="exp-date">2025 — Present</div>
+                    </div>
+                </div>
+
+                <div class="exp-row">
+                    <div class="exp-left-col">
+                        <span class="exp-number">02</span>
+                        <div class="exp-job-details">
+                            <h3>Change Healthcare</h3>
+                            <p class="exp-role-title">Business Systems Analyst</p>
+                            <p class="exp-description">Managed technical workflows, requirement elicitation, and data mapping specifications for large-scale healthcare integrations. Configured automated CMS report ingestion pipelines processing 100k+ records per file to guarantee billing accuracy and triaged live system workflows to cut manual overhead.</p>
+                        </div>
+                    </div>
+                    <div class="exp-right-col">
+                        <div class="exp-tags">
+                            <span>SQL</span>
+                            <span>DATA MAPPING</span>
+                            <span>CMS</span>
+                            <span>AGILE</span>
+                        </div>
+                        <div class="exp-date">2021 — 2025</div>
+                    </div>
+                </div>
+
+                <div class="exp-row">
+                    <div class="exp-left-col">
+                        <span class="exp-number">03</span>
+                        <div class="exp-job-details">
+                            <h3>Colsh Consultants</h3>
+                            <p class="exp-role-title">Business Systems Analyst</p>
+                            <p class="exp-description">Gathered and documented end-to-end technical requirement documentation and led user acceptance testing (UAT) execution loops across engineering squads to ensure 100% criteria alignment before deployment.</p>
+                        </div>
+                    </div>
+                    <div class="exp-right-col">
+                        <div class="exp-tags">
+                            <span>UAT TESTING</span>
+                            <span>JIRA</span>
+                            <span>REQUIREMENTS</span>
+                        </div>
+                        <div class="exp-date">2020 — 2021</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="inner-section">
+            <div class="section-divider-line"></div>
+            <div class="section-tag-label">02 — TOOLKIT</div>
+            <h2 class="section-main-title">Skills & Tools</h2>
+            
+            <div class="toolkit-grid">
+                <div class="toolkit-col">
+                    <span class="toolkit-col-title">CORE PM SKILLS</span>
+                    <ul class="toolkit-list">
+                        <li>0-to-1 Product Launch</li>
+                        <li>Product Roadmap Strategy</li>
+                        <li>MVP Definition</li>
+                        <li>PRD Writing</li>
+                        <li>Requirement Elicitation</li>
+                        <li>Agile / Scrum Delivery</li>
+                        <li>User Acceptance Testing (UAT)</li>
+                    </ul>
+                </div>
+
+                <div class="toolkit-col">
+                    <span class="toolkit-col-title">DATA & TECH</span>
+                    <ul class="toolkit-list">
+                        <li>SQL Data Mapping</li>
+                        <li>Technical Frameworks</li>
+                        <li>API Documentation</li>
+                        <li>System Architecture</li>
+                        <li>Automated Data Pipelines</li>
+                        <li>B2B SaaS Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="toolkit-col">
+                    <span class="toolkit-col-title">DOMAINS & COMPLIANCE</span>
+                    <ul class="toolkit-list">
+                        <li>Healthcare IT Platforms</li>
+                        <li>HIPAA Guidelines</li>
+                        <li>PHI Data Security</li>
+                        <li>CMS Ingestion Workflows</li>
+                        <li>System Integrations</li>
+                    </ul>
+                </div>
+
+                <div class="toolkit-col">
+                    <span class="toolkit-col-title">TOOLS & PLATFORMS</span>
+                    <ul class="toolkit-list">
+                        <li>Jira / Confluence</li>
+                        <li>Microsoft Copilot</li>
+                        <li>GitHub Copilot</li>
+                        <li>Claude AI Systems</li>
+                        <li>Google AI Tools</li>
+                        <li>Prompt Engineering</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nested-education-wrapper">
+                <span class="education-master-tag">EDUCATION</span>
+                
+                <div class="edu-row">
+                    <div class="edu-block">
+                        <h3>University of the Cumberlands</h3>
+                        <p>Master’s in Project Management — USA, 2024</p>
+                    </div>
+
+                    <div class="edu-block">
+                        <h3>New England College</h3>
+                        <p>Master's in Computer & Information Systems — USA, 2020</p>
+                    </div>
+
+                    <div class="edu-block">
+                        <h3>University of Mumbai</h3>
+                        <p>Bachelor of Engineering in Computer Engineering — India, 2016</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <section id="contact-banner" class="contact-red-section">
+        <div class="contact-container">
+            <div class="contact-section-tag">03 — CONTACT</div>
+            <h2 class="contact-title">Let's Talk</h2>
+            <div class="contact-email-wrapper">
+                <a href="mailto:dighemanjit@gmail.com" class="contact-main-email">dighemanjit@gmail.com</a>
+            </div>
+            <div class="contact-sub-links">
+                <a href="https://linkedin.com/in/manjeet-dighe" target="_blank">LINKEDIN</a>
+                <span class="divider">/</span>
+                <a href="mailto:dighemanjit@gmail.com">EMAIL</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Manjeet Dighe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // -------------------------------------------------------------
+        // 1. HTML5 Canvas Route Tracing Configuration
+        // -------------------------------------------------------------
+        const canvas = document.querySelector('.cursor-trail');
+        const ctx = canvas.getContext('2d');
+        
+        let points = [];
+        const maxPoints = 60; // Controls trailing route length memory
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+        // -------------------------------------------------------------
+        // 2. Hardware Tracking & Easing Coordinate Systems
+        // -------------------------------------------------------------
+        const dot = document.querySelector('.cursor-dot');
+        const ring = document.querySelector('.cursor-ring');
+
+        let mouseX = -100, mouseY = -100; // Offscreen baseline parameters
+        let ringX = 0, ringY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Draw real-time pinpoint dot coordinate matrix
+            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+
+            // Push fresh vector path tracing coordinate array node
+            points.push({ x: mouseX, y: mouseY });
+            if (points.length > maxPoints) {
+                points.shift();
+            }
+        });
+
+        // -------------------------------------------------------------
+        // 3. Main Animation Loop Engine (LERP Mechanics & Vector Path Rendering)
+        // -------------------------------------------------------------
+        function runVisualEngine() {
+            // Precise Linear Interpolation (0.12) to create smooth trailing ring elastic delay
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            ring.style.transform = `translate(${ringX - 10}px, ${ringY - 10}px)`;
+
+            // Clear frame buffer to update active path
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (points.length > 1) {
+                ctx.beginPath();
+                ctx.moveTo(points[0].x, points[0].y);
+
+                // Construct fluid continuous quadratic bezier track curves 
+                for (let i = 1; i < points.length - 1; i++) {
+                    const xc = (points[i].x + points[i + 1].x) / 2;
+                    const yc = (points[i].y + points[i + 1].y) / 2;
+                    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+                }
+
+                // Render styles using Renzhi's signature orange trace configuration
+                ctx.strokeStyle = 'rgba(255, 74, 34, 0.28)'; 
+                ctx.lineWidth = 1.2; // Perfectly mimics her precise pixel line weight stroke path
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.stroke();
+            }
+
+            // Continuously age points when the mouse remains completely stationary
+            if (points.length > 0 && (points[points.length - 1].x === mouseX && points[points.length - 1].y === mouseY)) {
+                // Decay route trail linearly to maintain layout neatness
+                if (Math.random() > 0.4) points.shift(); 
+            }
+
+            requestAnimationFrame(runVisualEngine);
+        }
+        requestAnimationFrame(runVisualEngine);
+
+        // Magnetic Expansion Engine for Active Target Interactions
+        document.querySelectorAll('a, .exp-tags span').forEach(interactiveElement => {
+            interactiveElement.addEventListener('mouseenter', () => {
+                ring.style.transform = `scale(1.8)`;
+                ring.style.borderColor = '#FF4A22';
+                ring.style.backgroundColor = 'rgba(255, 74, 34, 0.04)';
+                dot.style.backgroundColor = '#FF4A22';
+            });
+            interactiveElement.addEventListener('mouseleave', () => {
+                ring.style.transform = `scale(1.0)`;
+                ring.style.borderColor = 'rgba(0, 0, 0, 0.25)';
+                ring.style.backgroundColor = 'transparent';
+                dot.style.backgroundColor = '#111111';
+            });
+        });
+    </script>
 </body>
 </html>
