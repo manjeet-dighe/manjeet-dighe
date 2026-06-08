@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CORE RENDERING ENGINE & INSPECTOR SPECIFICATION VARIABLES
+   1. CORE RENDERING ENGINE & GRID ALIGNMENT VALUES
    ========================================================================== */
 *, *:before, *:after {
     box-sizing: border-box;
@@ -8,23 +8,19 @@
 }
 
 :root {
-    /* Exact color space array copy-pasted from root inspector */
     --bg: #F5F5F0; 
     --bg-alt: #EAEAE3;
     --ink: #0A0A0A;
     --ink-light: #2A2A2A;
     --ink-muted: #888888;
     --accent: #FF4D30;
-    --accent-hover: #E03A1F;
     --border: rgba(10, 10, 10, .1);
-    --border-dark: var(--ink);
     
-    /* True Font Stack Configurations */
+    /* True Font Family Configurations */
     --font-serif: "Instrument Serif", "Georgia", serif;
-    --font-display: "Instrument Serif", "Georgia", serif;
-    --font-body: "IBM Plex Mono", "Courier New", monospace; /* Root body defaults completely to mono */
+    --font-body: "IBM Plex Mono", "Courier New", monospace;
     
-    /* Spacing matrix configurations verified from inspector definitions */
+    /* Spacing matrix configurations verified from inspector dimensions */
     --space-xs: .5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
@@ -32,7 +28,7 @@
     --space-xl: 6rem;
     --space-2xl: 10rem;
     --max-width: 1000px;
-    --gutter: clamp(1.5rem, 5vw, 5rem); /* Prevents side-clipping artifacts completely */
+    --gutter: clamp(1.5rem, 5vw, 5rem); /* Strict page layout margin limits */
 }
 
 html {
@@ -40,7 +36,6 @@ html {
     font-size: 16px;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
-    font-synthesis: none;
 }
 
 body {
@@ -58,7 +53,7 @@ body {
     position: relative;
 }
 
-/* Central bound wrapper system keeping lower sections proportional to grid constraints */
+/* Central layout bound framework container */
 .main-content-wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -66,7 +61,7 @@ body {
 }
 
 /* ==========================================================================
-   2. RENDERING REPLICA ATTACHMENTS (GRAIN LAYER MATRIX)
+   2. RENDERING EFFECTS LAYER (PERMANENT INTERACTION CHANNELS)
    ========================================================================== */
 .cursor-trail {
     position: fixed;
@@ -117,14 +112,16 @@ body {
 }
 
 /* ==========================================================================
-   3. HIGH-INDEX HEADER RUNWAY STRIP (CLEAN BLOCK MASKING ON SCROLL)
+   3. OPAQUE FIXED NAVIGATION MASK (PREVENTS ACCIDENT TEXT COLLISION)
    ========================================================================== */
 .nav {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background-color: var(--bg); /* Opaque background blocking text collision during travel loops */
-    padding: 1.5rem var(--gutter); /* Locked directly to inspected parameters */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 100; /* Dominant layer indexing matched to live layout definitions */
+    background-color: #F5F5F0; /* Solid opaque color structure matches canvas */
+    padding: 1.5rem var(--gutter);
 }
 
 .nav-inner {
@@ -148,7 +145,7 @@ body {
     font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 400;
-    color: var(--ink) !important;
+    color: var(--ink);
     letter-spacing: 0.15em;
     transition: opacity 0.3s;
 }
@@ -156,7 +153,7 @@ body {
 .nav-link:hover { opacity: 0.5; }
 
 /* ==========================================================================
-   4. THE HERO REPLICA GEOMETRY ENGINE (BALANCED ALIGNMENT CORES)
+   4. HERO / ABOUT SECTION ENGINE (EXACT COMPOSITOR MATCH)
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -166,51 +163,47 @@ body {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    /* Verified structural spacing properties applied here */
-    padding: var(--space-2xl) var(--gutter) var(--space-lg);
+    padding: var(--space-2xl) var(--gutter) var(--space-lg); /* Top padding prevents overlap */
     margin: 0px auto;
     background-color: var(--bg);
 }
 
-/* Internal structural bounding grid layer */
 .hero-inner {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    text-align: left; /* Anchors the sentences cleanly to the left grid line */
+    text-align: left; /* Restores strict horizontal left tracking alignment lines */
 }
 
-/* Individual statement block wrappers restricting extreme wide-stretching */
 .hero-statement {
-    max-width: 780px; /* Constrains line length to leave spacious room on the right side */
-    margin-bottom: var(--space-lg); /* Elegant spacing structure between paragraphs */
+    max-width: 780px; /* Constrains inline text wrapping metrics completely */
+    margin-bottom: var(--space-lg);
 }
 
 .hero-statement:last-of-type {
     margin-bottom: 0;
 }
 
-/* Fine-tuned typography configurations matching her profile */
+/* Typographic properties verified directly from her Computed inspect console panel */
 .hero-statement p {
-    font-family: var(--font-display) !important;
-    font-size: clamp(2.2rem, 4.2vw, 3.8rem) !important; 
-    font-weight: 400 !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.02em !important;
-    color: var(--ink) !important;
-    text-transform: none !important;
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 4vw, 4rem); /* Exact typography scaling rules */
+    font-weight: 400;
+    line-height: 1; /* Completely tightens text block leading gaps */
+    letter-spacing: -.01em; /* Extracted negative tracking metrics */
+    color: var(--ink);
+    text-transform: none;
 }
 
-/* Explicit typographic italics control */
+/* Explicit style overrides for your custom inline italic blocks */
 .hero-statement p em {
-    font-family: var(--font-display) !important;
-    font-style: italic !important;
-    font-weight: 400 !important;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
 }
 
-/* Pinned layout configurations for bottom viewport tracking items */
 .hero-bottom {
     position: absolute;
     bottom: var(--space-lg);
@@ -239,7 +232,7 @@ body {
 }
 
 /* ==========================================================================
-   5. ASYMMETRIC PORTFOLIO WORK ROWS
+   5. EXP-ROW GRID CORES (FIXES ASYMMETRIC COLUMN DRIFT)
    ========================================================================== */
 .inner-section {
     padding-top: var(--space-2xl);
@@ -263,18 +256,19 @@ body {
 }
 
 .section-main-title {
-    font-family: var(--font-display) !important;
-    font-size: clamp(3rem, 7.5vw, 6.5rem) !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.03em !important;
-    color: var(--ink) !important;
-    margin-bottom: 4rem !important;
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 7.5vw, 6.5rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 4rem;
     line-height: 1.0;
 }
 
+/* Grid parameters explicitly separating description texts from timeline anchors */
 .exp-row {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.5fr 1fr; /* Solid column anchoring prevents text drift */
     gap: 4rem;
     padding: var(--space-lg) 0;
     border-top: 1px solid var(--border);
@@ -297,35 +291,36 @@ body {
 }
 
 .exp-job-details h3 {
-    font-family: var(--font-display) !important;
-    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.01em !important;
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
     margin-bottom: 0.3rem;
 }
 
 .exp-role-title {
-    font-family: var(--font-display) !important;
-    font-style: italic !important;
+    font-family: var(--font-serif);
+    font-style: italic;
     font-size: 1.25rem;
     color: var(--ink-light);
     margin-bottom: 2rem;
 }
 
 .exp-description {
-    font-family: var(--font-body) !important;
-    font-size: 13px !important;
-    line-height: 1.75 !important;
-    color: #4A4A4A !important;
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.75;
+    color: #4A4A4A;
     max-width: 520px;
     letter-spacing: -0.01em;
 }
 
+/* Rigid right alignment row container keeping tags and timeline dates synchronized */
 .exp-right-col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-end; /* Snaps timeline and tags flush right to the container wall */
     padding-top: 0.8rem;
 }
 
@@ -340,8 +335,8 @@ body {
 .exp-tags span {
     font-family: var(--font-body);
     font-size: 0.58rem;
-    color: var(--accent) !important;
-    border: 1px solid rgba(255, 77, 48, 0.2) !important;
+    color: var(--accent);
+    border: 1px solid rgba(255, 77, 48, 0.2);
     padding: 0.3rem 0.6rem;
     letter-spacing: 0.05em;
     border-radius: 2px;
@@ -351,10 +346,11 @@ body {
     font-family: var(--font-body);
     font-size: 0.78rem;
     color: var(--ink-muted);
+    margin-top: 1rem; /* Maintains vertical buffer alignment under tag blocks */
 }
 
 /* ==========================================================================
-   6. SKILLS SEGMENT GRID
+   6. SKILLS TOOLKIT GRID CHANNELS
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -400,7 +396,7 @@ body {
 }
 
 /* ==========================================================================
-   7. INTERLOCKING ACADEMIC SEGMENT CORES
+   7. NESTED ACADEMIC SUBGRID SECTOR
    ========================================================================== */
 .nested-education-wrapper {
     margin-top: var(--space-xl);
@@ -426,26 +422,26 @@ body {
 }
 
 .edu-block h3 {
-    font-family: var(--font-display) !important;
-    font-size: 1.45rem !important;
-    font-weight: 400 !important;
-    font-style: italic !important;
-    color: var(--ink) !important;
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
     margin-bottom: 0.6rem;
     line-height: 1.25;
 }
 
 .edu-block p {
-    font-family: var(--font-body) !important;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--ink-muted);
 }
 
 /* ==========================================================================
-   8. COMPREHENSIVE OVER-EXTENDED RED CONTACT BANNER
+   8. DYNAMIC OVER-EXTENDED RED CONTACT ROW BANNER
    ========================================================================== */
 .contact-red-section {
-    background-color: var(--accent) !important;
+    background-color: var(--accent);
     width: 100vw;
     position: relative;
     left: 50%; right: 50%;
@@ -470,12 +466,12 @@ body {
 }
 
 .contact-title {
-    font-family: var(--font-display) !important;
-    font-size: clamp(3.5rem, 8vw, 6.8rem) !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.03em !important;
-    color: var(--ink) !important;
-    margin-bottom: 3.5rem !important;
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 8vw, 6.8rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 3.5rem;
     line-height: 1.0;
 }
 
@@ -484,9 +480,9 @@ body {
 }
 
 .contact-main-email {
-    font-family: var(--font-body) !important;
+    font-family: var(--font-body);
     font-size: 1.15rem;
-    color: #ffffff !important;
+    color: #ffffff;
     text-decoration: none;
     border-bottom: 1px solid rgba(255,255,255,0.4);
     padding-bottom: 0.4rem;
@@ -499,11 +495,11 @@ body {
 }
 
 .contact-sub-links a {
-    color: rgba(255,255,255,0.6) !important;
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
 }
 
-.contact-sub-links a:hover { color: #ffffff !important; }
+.contact-sub-links a:hover { color: #ffffff; }
 
 .contact-sub-links .divider {
     margin: 0 0.6rem;
@@ -511,7 +507,7 @@ body {
 }
 
 /* ==========================================================================
-   9. FOOTER SITE SPECIFICATIONS
+   9. FOOTER SPECIFICATIONS
    ========================================================================== */
 .footer {
     max-width: var(--max-width);
