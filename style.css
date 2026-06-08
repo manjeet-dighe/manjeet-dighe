@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. ROOT REPLICA SYSTEM VARIABLES
+   1. CORE RENDERING ENGINE & INSPECTOR SPECIFICATION VARIABLES
    ========================================================================== */
 *, *:before, *:after {
     box-sizing: border-box;
@@ -8,7 +8,8 @@
 }
 
 :root {
-    --bg: #F5F5F0; /* True color variables matching her inspector profile */
+    /* Exact color space array copy-pasted from root inspector */
+    --bg: #F5F5F0; 
     --bg-alt: #EAEAE3;
     --ink: #0A0A0A;
     --ink-light: #2A2A2A;
@@ -18,12 +19,12 @@
     --border: rgba(10, 10, 10, .1);
     --border-dark: var(--ink);
     
-    /* Typography Engine variables */
+    /* True Font Stack Configurations */
     --font-serif: "Instrument Serif", "Georgia", serif;
     --font-display: "Instrument Serif", "Georgia", serif;
-    --font-body: "IBM Plex Mono", "Courier New", monospace; /* Core body set back to true mono */
+    --font-body: "IBM Plex Mono", "Courier New", monospace; /* Root body defaults completely to mono */
     
-    /* Spatial Geometry properties */
+    /* Spacing matrix configurations verified from inspector definitions */
     --space-xs: .5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
@@ -31,7 +32,7 @@
     --space-xl: 6rem;
     --space-2xl: 10rem;
     --max-width: 1000px;
-    --gutter: clamp(1.5rem, 5vw, 5rem); /* Dynamic gutter clamp matrix */
+    --gutter: clamp(1.5rem, 5vw, 5rem); /* Prevents side-clipping artifacts completely */
 }
 
 html {
@@ -49,7 +50,7 @@ body {
     background-color: var(--bg);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none; /* Disables regular pointer assets for canvas execution */
+    cursor: none;
 }
 
 #root, .site {
@@ -57,7 +58,7 @@ body {
     position: relative;
 }
 
-/* Structural Max-width content boundary layer */
+/* Central bound wrapper system keeping lower sections proportional to grid constraints */
 .main-content-wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -65,7 +66,7 @@ body {
 }
 
 /* ==========================================================================
-   2. VISUAL ARTIFACT RENDERING REPLICAS (GRAIN & ACCENT CHANNELS)
+   2. RENDERING REPLICA ATTACHMENTS (GRAIN LAYER MATRIX)
    ========================================================================== */
 .cursor-trail {
     position: fixed;
@@ -116,15 +117,14 @@ body {
 }
 
 /* ==========================================================================
-   3. HIGH-INDEX OPAQUE RUNWAY NAVIGATION LAYER
+   3. HIGH-INDEX HEADER RUNWAY STRIP (CLEAN BLOCK MASKING ON SCROLL)
    ========================================================================== */
 .nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background-color: var(--bg); /* Opaque background blocking text overflow underneath */
-    padding: 1.5rem var(--gutter); /* Directly matched to her padding layout geometry */
-    transition: transform 0.3s, opacity 0.3s;
+    background-color: var(--bg); /* Opaque background blocking text collision during travel loops */
+    padding: 1.5rem var(--gutter); /* Locked directly to inspected parameters */
 }
 
 .nav-inner {
@@ -153,12 +153,10 @@ body {
     transition: opacity 0.3s;
 }
 
-.nav-link:hover {
-    opacity: 0.5;
-}
+.nav-link:hover { opacity: 0.5; }
 
 /* ==========================================================================
-   4. HERO GEOMETRY ENGINE (MIRRORING THE STRUCTURAL GRID PATTERNS)
+   4. THE HERO REPLICA GEOMETRY ENGINE (BALANCED ALIGNMENT CORES)
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -168,35 +166,36 @@ body {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    /* Implements her structural spacing matrix variables precisely */
+    /* Verified structural spacing properties applied here */
     padding: var(--space-2xl) var(--gutter) var(--space-lg);
     margin: 0px auto;
     background-color: var(--bg);
 }
 
-/* Boundaries governing layout behavior */
+/* Internal structural bounding grid layer */
 .hero-inner {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: left; /* Anchors the sentences cleanly to the left grid line */
 }
 
+/* Individual statement block wrappers restricting extreme wide-stretching */
 .hero-statement {
-    max-width: 780px; /* Snaps text box columns into perfect proportions */
-    margin-bottom: 3.5rem;
+    max-width: 780px; /* Constrains line length to leave spacious room on the right side */
+    margin-bottom: var(--space-lg); /* Elegant spacing structure between paragraphs */
 }
 
 .hero-statement:last-of-type {
     margin-bottom: 0;
 }
 
-/* Type layout engine configs */
+/* Fine-tuned typography configurations matching her profile */
 .hero-statement p {
     font-family: var(--font-display) !important;
-    font-size: clamp(2.2rem, 4.2vw, 3.8rem) !important; /* Elegant fluid layout scaling */
+    font-size: clamp(2.2rem, 4.2vw, 3.8rem) !important; 
     font-weight: 400 !important;
     line-height: 1.15 !important;
     letter-spacing: -0.02em !important;
@@ -204,13 +203,14 @@ body {
     text-transform: none !important;
 }
 
+/* Explicit typographic italics control */
 .hero-statement p em {
     font-family: var(--font-display) !important;
     font-style: italic !important;
     font-weight: 400 !important;
 }
 
-/* Scroll hint layout alignment grids */
+/* Pinned layout configurations for bottom viewport tracking items */
 .hero-bottom {
     position: absolute;
     bottom: var(--space-lg);
@@ -239,7 +239,7 @@ body {
 }
 
 /* ==========================================================================
-   5. PORTFOLIO WORK EXPERIENCE REGIONS
+   5. ASYMMETRIC PORTFOLIO WORK ROWS
    ========================================================================== */
 .inner-section {
     padding-top: var(--space-2xl);
@@ -354,7 +354,7 @@ body {
 }
 
 /* ==========================================================================
-   6. TECHNICAL SKILLS STRUCTURAL SYSTEM
+   6. SKILLS SEGMENT GRID
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -400,7 +400,7 @@ body {
 }
 
 /* ==========================================================================
-   7. NESTED ACADEMIC MATRIX GRID
+   7. INTERLOCKING ACADEMIC SEGMENT CORES
    ========================================================================== */
 .nested-education-wrapper {
     margin-top: var(--space-xl);
@@ -442,7 +442,7 @@ body {
 }
 
 /* ==========================================================================
-   8. RED CONTACT BANNER MODULE
+   8. COMPREHENSIVE OVER-EXTENDED RED CONTACT BANNER
    ========================================================================== */
 .contact-red-section {
     background-color: var(--accent) !important;
@@ -511,7 +511,7 @@ body {
 }
 
 /* ==========================================================================
-   9. FOOTER SITE SYSTEM
+   9. FOOTER SITE SPECIFICATIONS
    ========================================================================== */
 .footer {
     max-width: var(--max-width);
@@ -522,7 +522,7 @@ body {
 }
 
 /* ==========================================================================
-   10. MOBILE BREAKPOINT ARCHITECTURES
+   10. MOBILE BREAKPOINT LAYOUT ADAPTATIONS
    ========================================================================== */
 @media (max-width: 1024px) {
     .exp-row {
@@ -546,7 +546,7 @@ body {
 
 @media (max-width: 768px) {
     :root {
-        --gutter: 2.5rem; /* Resets matching mobile grid queries */
+        --gutter: 2.5rem; 
     }
     .hero {
         padding-top: var(--space-xl);
