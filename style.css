@@ -131,7 +131,7 @@ body {
 .hero {
     min-height: 100vh;
     width: 100%;
-    padding: 0 var(--gutter);
+    padding: 10rem var(--gutter) 6rem var(--gutter);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,7 +141,9 @@ body {
     background-color: var(--bg);
 }
 
-/* FLUID ARCHITECTURAL TYPOGRAPHY SYSTEM */
+/* FLUID ARCHITECTURAL TYPOGRAPHY SYSTEM 
+   Uses fine-tuned clamp values to match Renzhi's exact visual footprint.
+*/
 .hero-headline {
     font-family: var(--font-serif) !important;
     font-size: clamp(1.8rem, 3.8vw, 3.2rem) !important;
@@ -509,7 +511,7 @@ body {
 @media (max-width: 1024px) {
     .main-content-wrapper { padding: 0 4vw; }
     .nav { padding: 2.5rem 4vw; }
-    .hero { padding: 0 4vw; }
+    .hero { padding: 8rem 4vw 4rem 4vw; }
     .scroll-indicator { left: 4vw; }
     .exp-row {
         grid-template-columns: 1fr;
@@ -545,7 +547,7 @@ body {
     .toolkit-col { border-left: none; border-right: none; padding: 1rem 0 3rem 0; }
     .main-content-wrapper { padding: 0 1.5rem; }
     .nav { padding: 2.5rem 1.5rem; }
-    .hero { padding: 0 1.5rem; }
+    .hero { padding: 6rem 1.5rem 4rem 1.5rem; }
     .scroll-indicator { left: 1.5rem; }
     .exp-right-col { padding-left: 0; }
 }
