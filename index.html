@@ -565,7 +565,6 @@
             mouseY = e.clientY;
             
             dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-            // Keeps growing without truncation to preserve complete session vector coordinates
             points.push({ x: mouseX, y: mouseY });
         });
 
@@ -599,7 +598,7 @@
         }
         requestAnimationFrame(runVisualEngine);
 
-        // Interaction Hover Event Subscriptions
+        // Interaction Hover States
         document.querySelectorAll('a, .exp-tags span, .hero-scroll-hint').forEach(element => {
             element.addEventListener('mouseenter', () => {
                 ring.style.transform = `scale(1.8)`;
@@ -617,4 +616,3 @@
     </script>
 </body>
 </html>
-
