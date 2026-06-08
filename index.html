@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,25 +22,42 @@
         <div class="site">
             
             <nav class="nav">
-                <div class="nav-links">
-                    <a href="#about">ABOUT</a>
-                    <a href="#experience">WORK</a>
-                    <a href="#skills">SKILLS</a>
-                    <a href="#contact-banner">CONTACT</a>
+                <div class="nav-inner">
+                    <ul class="nav-links">
+                        <li><a href="#about" class="nav-link">ABOUT</a></li>
+                        <li><a href="#experience" class="nav-link">WORK</a></li>
+                        <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                        <li><a href="#contact-banner" class="nav-link">CONTACT</a></li>
+                    </ul>
                 </div>
             </nav>
 
             <main>
                 <section class="hero" id="about">
-                    <div class="hero-content-container">
-                        <h1 class="hero-headline">
-                            Manjeet is a <em>Product Manager</em> based in Mumbai who thrives where the requirements are messy, and the problems are hard.
-                        </h1>
-                        <h1 class="hero-headline">
-                            He has spent his career building across healthcare platforms, compliance-heavy systems, and AI tooling, turning complexity into products that actually ship.
-                        </h1>
+                    <div class="hero-inner">
+                        
+                        <div class="hero-statement">
+                            <p>
+                                Manjeet is a <em>Product Manager</em> based in Mumbai, India, who specializes in building products from scratch, the kind where there's no documentation, no legacy reference, and somehow still a deadline.
+                            </p>
+                        </div>
+
+                        <div class="hero-statement">
+                            <p>
+                                With 5+ years of experience across healthcare platforms, compliance-heavy data systems, and AI tooling, he has a track record of turning ambiguous problems into shipped, scalable solutions. He is at his best when product, engineering, design, and a multi-million-dollar health network overlap.
+                            </p>
+                        </div>
+
                     </div>
-                    <div class="scroll-indicator">SCROLL &darr;</div>
+                    
+                    <div class="hero-bottom">
+                        <div class="hero-scroll-hint">
+                            <span class="hero-scroll-label">SCROLL</span>
+                            <svg class="hero-scroll-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
                 </section>
 
                 <div class="main-content-wrapper">
@@ -217,20 +234,18 @@
     <script>
         const canvas = document.querySelector('.cursor-trail');
         const ctx = canvas.getContext('2d');
-        
         let points = [];
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            redrawTrail();
+            redrawPermanentTrail();
         }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
         const dot = document.querySelector('.cursor-dot');
         const ring = document.querySelector('.cursor-ring');
-
         let mouseX = -100, mouseY = -100;
         let ringX = 0, ringY = 0;
 
@@ -239,12 +254,11 @@
             mouseY = e.clientY;
             
             dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-
-            // Permanent tracking: points are pushed but NEVER shifted off the array stack
+            // Path data points are stored completely without shifts to match persistent state
             points.push({ x: mouseX, y: mouseY });
         });
 
-        function redrawTrail() {
+        function redrawPermanentTrail() {
             if (points.length < 2) return;
             ctx.beginPath();
             ctx.moveTo(points[0].x, points[0].y);
@@ -255,7 +269,7 @@
                 ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
             }
             
-            ctx.strokeStyle = 'rgba(255, 74, 34, 0.28)'; 
+            ctx.strokeStyle = 'rgba(255, 74, 34, 0.22)'; 
             ctx.lineWidth = 1.2; 
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
@@ -268,25 +282,25 @@
             ring.style.transform = `translate(${ringX - 10}px, ${ringY - 10}px)`;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            redrawTrail();
+            redrawPermanentTrail();
 
             requestAnimationFrame(runVisualEngine);
         }
         requestAnimationFrame(runVisualEngine);
 
-        // Hover bindings
-        document.querySelectorAll('a, .exp-tags span').forEach(interactiveElement => {
-            interactiveElement.addEventListener('mouseenter', () => {
+        // Interactive states behavior modifications
+        document.querySelectorAll('a, .exp-tags span, .hero-scroll-hint').forEach(element => {
+            element.addEventListener('mouseenter', () => {
                 ring.style.transform = `scale(1.8)`;
                 ring.style.borderColor = '#FF4A22';
                 ring.style.backgroundColor = 'rgba(255, 74, 34, 0.04)';
                 dot.style.backgroundColor = '#FF4A22';
             });
-            interactiveElement.addEventListener('mouseleave', () => {
+            element.addEventListener('mouseleave', () => {
                 ring.style.transform = `scale(1.0)`;
                 ring.style.borderColor = 'rgba(0, 0, 0, 0.25)';
                 ring.style.backgroundColor = 'transparent';
-                dot.style.backgroundColor = '#111111';
+                dot.style.backgroundColor = '#0A0A0A';
             });
         });
     </script>
