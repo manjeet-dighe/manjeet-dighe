@@ -15,12 +15,12 @@ html {
 body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     color: #111111;
-    background-color: #f9f8f6 !important; /* Premium paper backdrop hue match */
+    background-color: #f9f8f6 !important;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    cursor: none; /* Masks baseline operating system pointer metrics */
+    cursor: none;
 }
 
 .main-content-wrapper {
@@ -30,7 +30,7 @@ body {
 }
 
 /* ==========================================================================
-   1B. FULL-SCREEN CANVAS VECTOR TRAIL ENGINE CONTAINER
+   1B. CANVAS VISUAL TRAIL LAYERING
    ========================================================================== */
 .cursor-trail {
     position: fixed;
@@ -38,12 +38,12 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    pointer-events: none; /* Allows natural user item clicks to bypass canvas matrix layer */
-    z-index: 9998; /* Floats directly beneath interface pointer UI rings */
+    pointer-events: none;
+    z-index: 9998;
 }
 
 /* ==========================================================================
-   1C. HIGH-PERFORMANCE ANALOGUE FILM GRAIN NOISE OVERLAY
+   1C. FILM GRAIN OVERLAY ENGINE
    ========================================================================== */
 .grain {
     position: fixed;
@@ -73,7 +73,7 @@ body {
 }
 
 /* ==========================================================================
-   1D. POINTER MODULE INTERFACE GRAPHICS 
+   1D. CUSTOM CURSOR INTERFACE ELEMENT DESIGNS
    ========================================================================== */
 .cursor-dot {
     width: 4px;
@@ -107,7 +107,7 @@ body {
 }
 
 /* ==========================================================================
-   2. HERO HEADER & SPATIAL LAYOUT CORES
+   2. HERO LAYOUT CORES & DYNAMIC CENTER ALIGNMENT
    ========================================================================== */
 .hero-fold-wrapper {
     background-color: #f9f8f6 !important;
@@ -146,31 +146,34 @@ body {
     margin: auto auto 10rem auto;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
     position: relative;
 }
 
-.replica-headline {
-    font-family: "Newsreader", "Georgia", serif !important;
-    font-size: clamp(2.4rem, 5.8vw, 5.4rem) !important; 
-    font-weight: 400 !important;
-    color: #111111 !important;
-    line-height: 1.1 !important; 
-    letter-spacing: -0.03em !important; 
-    text-transform: none !important;
-    max-width: 85%;
+/* UTILITY FOR RENZHI CENTERING METHOD */
+.dynamic-about-center {
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
 }
 
-.replica-headline em {
-    font-style: italic !important;
-    font-family: "Newsreader", "Georgia", serif !important;
-    font-weight: 400 !important;
+/* MICRO-SCALE PROFILE CONFIGURATION 
+   Forces text to remain strictly at 12px independent of length changes.
+*/
+.dynamic-summary-text {
+    font-family: "Inter", sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.9 !important;
+    color: #444444 !important;
+    max-width: 650px; /* Constraints text rows elegantly */
+    letter-spacing: 0.015em !important;
+    text-align: center !important;
 }
 
 .replica-scroll {
     position: absolute;
     bottom: -5rem;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the scroll tag underneath paragraph wrapper */
     font-size: 0.62rem;
     font-weight: 500;
     color: #999999;
@@ -178,7 +181,7 @@ body {
 }
 
 /* ==========================================================================
-   3. ASYMMETRIC EXPERIENCES GRID SYSTEM (EXACT MATCHING)
+   3. ASYMMETRIC EXPERIENCES GRID SYSTEM
    ========================================================================== */
 .inner-section {
     padding-top: 12rem; 
@@ -260,12 +263,9 @@ body {
     margin-bottom: 2.2rem;
 }
 
-/* EXACT REPLICATED FIXED MICRO-FONT SCALE PROFILE 
-   Locked completely at 12px independent of variable layout length metrics.
-*/
 .exp-description {
     font-family: "Inter", sans-serif !important;
-    font-size: 12px !important; /* Forces strict absolute lock step with Renzhi's layout scale */
+    font-size: 12px !important;
     line-height: 1.8 !important; 
     color: #555555 !important; 
     max-width: 490px; 
@@ -311,7 +311,7 @@ body {
 }
 
 /* ==========================================================================
-   4. TOOLKIT SYMMETRIC DISPLAY MATRIX
+   4. TOOLKIT SECTIONS GRID DISPLAY
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -411,7 +411,7 @@ body {
 }
 
 /* ==========================================================================
-   6. CONTACT BLOCK FLUID OVERLAY
+   6. CONTACT BLOCK FOOTER WRAPPERS
    ========================================================================== */
 .contact-red-section {
     background-color: #FF4A22 !important;
@@ -496,7 +496,7 @@ body {
 }
 
 /* ==========================================================================
-   7. PLATFORM FOOTER
+   7. FOOTER SITE NOTES
    ========================================================================== */
 footer {
     max-width: 1440px;
@@ -510,7 +510,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. RESPONSIVE COLLAPSE BREAKPOINTS
+   8. RESPONSIVE BREAKPOINTS ENGINE
    ========================================================================== */
 @media (max-width: 1024px) {
     .hero-fold-wrapper, .main-content-wrapper { padding: 0 4vw; }
