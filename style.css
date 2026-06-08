@@ -1,10 +1,19 @@
 /* ==========================================================================
-   1. CORE RENDERING ENGINE & EDITORIAL CANVASES
+   1. CORE RENDERING ENGINE & EDITORIAL CANVASES (RENZHI MATCHED)
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --gutter: 5vw;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: "Newsreader", "Georgia", serif;
+    --ink: #111111;
+    --bg: #f9f8f6;
+    --accent: #FF4A22;
 }
 
 html {
@@ -13,24 +22,29 @@ html {
 }
 
 body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #111111;
-    background-color: #f9f8f6 !important;
-    line-height: 1.65;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background-color: var(--bg) !important;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     cursor: none;
 }
 
+#root, .site {
+    width: 100%;
+    position: relative;
+}
+
 .main-content-wrapper {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 5vw;
+    padding: 0 var(--gutter);
 }
 
 /* ==========================================================================
-   1B. CANVAS VISUAL TRAIL LAYERING
+   1B. RENDERING PLUGINS (GRAIN & CURSOR TRACE)
    ========================================================================== */
 .cursor-trail {
     position: fixed;
@@ -42,18 +56,11 @@ body {
     z-index: 9998;
 }
 
-/* ==========================================================================
-   1C. FILM GRAIN OVERLAY ENGINE
-   ========================================================================== */
 .grain {
     position: fixed;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
-    height: 200%;
-    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.018"/%3E%3C/svg%3E');
+    top: -50%; left: -50%; right: -50%; bottom: -50%;
+    width: 200%; height: 200%;
+    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.015"/%3E%3C/svg%3E');
     animation: grain-physics 7s steps(8) infinite;
     pointer-events: none;
     z-index: 9999;
@@ -72,33 +79,16 @@ body {
     90% { transform:translate(-10%, 10%); }
 }
 
-/* ==========================================================================
-   1D. CUSTOM CURSOR INTERFACE ELEMENT DESIGNS
-   ========================================================================== */
 .cursor-dot {
-    width: 4px;
-    height: 4px;
-    background-color: #111111;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    will-change: transform;
+    width: 4px; height: 4px; background-color: var(--ink);
+    position: fixed; top: 0; left: 0; border-radius: 50%;
+    pointer-events: none; z-index: 10000; will-change: transform;
 }
 
 .cursor-ring {
-    width: 20px;
-    height: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    will-change: transform;
+    width: 20px; height: 20px; border: 1px solid rgba(0, 0, 0, 0.25);
+    position: fixed; top: 0; left: 0; border-radius: 50%;
+    pointer-events: none; z-index: 9999; will-change: transform;
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -107,81 +97,88 @@ body {
 }
 
 /* ==========================================================================
-   2. HERO LAYOUT CORES & DYNAMIC CENTER ALIGNMENT
+   2. FIXED RUNWAY NAVIGATION LAYER
    ========================================================================== */
-.hero-fold-wrapper {
-    background-color: #f9f8f6 !important;
-    min-height: 100vh;
-    width: 100%;
-    padding: 0 5vw;
+.nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 2.5rem var(--gutter);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.replica-header {
-    display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 4rem 0;
-    width: 100%;
-    margin: 0 auto;
+    background: transparent;
+    pointer-events: none;
 }
 
-.replica-nav a {
+.nav a {
     text-decoration: none;
-    color: #111111 !important;
+    color: var(--ink) !important;
     margin-left: 3.5rem;
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.22em; 
-    transition: opacity 0.2s ease;
+    transition: opacity 0.3s ease;
     cursor: none;
+    pointer-events: auto;
 }
 
-.replica-nav a:hover { opacity: 0.5; }
+.nav a:hover { opacity: 0.5; }
 
-.replica-hero {
+/* ==========================================================================
+   3. THE ABOUT HERO BLOCK (FLAWLESS REPLICA LAYOUT ENGINE)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
     width: 100%;
-    margin: auto auto 10rem auto;
+    padding: 0 var(--gutter);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     position: relative;
+    background-color: var(--bg);
 }
 
-/* UTILITY FOR RENZHI CENTERING METHOD */
-.dynamic-about-center {
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
+/* FLUID ARCHITECTURAL TYPOGRAPHY SYSTEM */
+.hero-headline {
+    font-family: var(--font-serif) !important;
+    font-size: clamp(1.8rem, 3.8vw, 3.2rem) !important;
+    font-weight: 400 !important;
+    color: var(--ink) !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.02em !important;
+    max-width: 1100px;
+    margin: 0 auto 3.5rem auto;
+    text-transform: none !important;
 }
 
-/* MICRO-SCALE PROFILE CONFIGURATION 
-   Forces text to remain strictly at 12px independent of length changes.
-*/
-.dynamic-summary-text {
-    font-family: "Inter", sans-serif !important;
-    font-size: 12px !important;
-    line-height: 1.9 !important;
-    color: #444444 !important;
-    max-width: 650px; /* Constraints text rows elegantly */
-    letter-spacing: 0.015em !important;
-    text-align: center !important;
+.hero-headline:nth-of-type(2) {
+    margin-bottom: 0;
 }
 
-.replica-scroll {
+/* STRICT DESIGN LOCK TO ITALIC ELEMENTS */
+.hero-headline em {
+    font-family: var(--font-serif) !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+/* SCROLL LINK PINNED PERFECTLY TO MARGIN TRACE LINE */
+.scroll-indicator {
     position: absolute;
-    bottom: -5rem;
-    left: 50%;
-    transform: translateX(-50%); /* Centers the scroll tag underneath paragraph wrapper */
+    bottom: 3.5rem;
+    left: var(--gutter);
     font-size: 0.62rem;
     font-weight: 500;
     color: #999999;
     letter-spacing: 0.25em;
+    text-transform: uppercase;
 }
 
 /* ==========================================================================
-   3. ASYMMETRIC EXPERIENCES GRID SYSTEM
+   4. ASYMMETRIC EXPERIENCES GRID SYSTEM
    ========================================================================== */
 .inner-section {
     padding-top: 12rem; 
@@ -205,10 +202,10 @@ body {
 }
 
 .section-main-title {
-    font-family: "Newsreader", "Georgia", serif !important;
+    font-family: var(--font-serif) !important;
     font-size: clamp(3rem, 7vw, 6.2rem) !important;
     font-weight: 400 !important;
-    color: #111111 !important;
+    color: var(--ink) !important;
     letter-spacing: -0.03em !important;
     margin-bottom: 5rem !important;
     text-transform: none !important;
@@ -247,16 +244,16 @@ body {
 }
 
 .exp-job-details h3 {
-    font-family: "Newsreader", "Georgia", serif !important;
+    font-family: var(--font-serif) !important;
     font-size: clamp(1.8rem, 3.2vw, 2.8rem) !important;
     font-weight: 400 !important;
-    color: #111111 !important;
+    color: var(--ink) !important;
     letter-spacing: -0.02em !important;
     margin-bottom: 0.4rem;
 }
 
 .exp-role-title {
-    font-family: "Newsreader", "Georgia", serif !important;
+    font-family: var(--font-serif) !important;
     font-style: italic !important;
     font-size: 1.25rem;
     color: #444444;
@@ -264,7 +261,7 @@ body {
 }
 
 .exp-description {
-    font-family: "Inter", sans-serif !important;
+    font-family: var(--font-body) !important;
     font-size: 12px !important;
     line-height: 1.8 !important; 
     color: #555555 !important; 
@@ -292,10 +289,10 @@ body {
 }
 
 .exp-tags span {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.58rem;
     font-weight: 600;
-    color: #FF4A22 !important;
+    color: var(--accent) !important;
     border: 1px solid rgba(255, 74, 34, 0.25) !important;
     padding: 0.35rem 0.65rem;
     letter-spacing: 0.08em;
@@ -304,14 +301,14 @@ body {
 }
 
 .exp-date {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.78rem;
     color: #888888;
     letter-spacing: -0.01em;
 }
 
 /* ==========================================================================
-   4. TOOLKIT SECTIONS GRID DISPLAY
+   5. TOOLKIT SECTIONS GRID DISPLAY
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -332,10 +329,10 @@ body {
 
 .toolkit-col-title {
     display: block;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 600;
-    color: #FF4A22;
+    color: var(--accent);
     letter-spacing: 0.18em;
     margin-bottom: 3rem;
     text-transform: uppercase;
@@ -348,7 +345,7 @@ body {
 }
 
 .toolkit-list li {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.86rem;
     color: #222222;
     padding: 0.85rem 0;
@@ -361,7 +358,7 @@ body {
 }
 
 /* ==========================================================================
-   5. ASYMMETRIC EDUCATION AREA
+   6. ASYMMETRIC EDUCATION AREA
    ========================================================================== */
 .nested-education-wrapper {
     margin-top: 6rem;
@@ -371,10 +368,10 @@ body {
 
 .education-master-tag {
     display: block;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 600;
-    color: #FF4A22;
+    color: var(--accent);
     letter-spacing: 0.22em;
     text-transform: uppercase;
     margin-bottom: 3.5rem;
@@ -392,18 +389,18 @@ body {
 }
 
 .edu-block h3 {
-    font-family: "Newsreader", "Georgia", serif !important;
+    font-family: var(--font-serif) !important;
     font-size: 1.5rem !important;
     font-weight: 400 !important;
     font-style: italic !important;
-    color: #111111 !important;
+    color: var(--ink) !important;
     letter-spacing: -0.01em !important;
     margin-bottom: 0.7rem;
     line-height: 1.3;
 }
 
 .edu-block p {
-    font-family: "Inter", sans-serif !important;
+    font-family: var(--font-body) !important;
     font-size: 0.84rem;
     color: #555555;
     letter-spacing: -0.01em;
@@ -411,19 +408,16 @@ body {
 }
 
 /* ==========================================================================
-   6. CONTACT BLOCK FOOTER WRAPPERS
+   7. CONTACT BLOCK FOOTER WRAPPERS
    ========================================================================== */
 .contact-red-section {
-    background-color: #FF4A22 !important;
+    background-color: var(--accent) !important;
     max-width: 100% !important;
     width: 100vw;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-top: 15rem;
-    margin-bottom: 0 !important;
+    left: 50%; right: 50%;
+    margin-left: -50vw; margin-right: -50vw;
+    margin-top: 15rem; margin-bottom: 0 !important;
     padding: 12rem 0;
     text-align: center;
 }
@@ -446,10 +440,10 @@ body {
 }
 
 .contact-title {
-    font-family: "Newsreader", "Georgia", serif !important;
+    font-family: var(--font-serif) !important;
     font-size: clamp(3.8rem, 8.5vw, 7rem) !important;
     font-weight: 400 !important;
-    color: #111111 !important;
+    color: var(--ink) !important;
     letter-spacing: -0.04em !important;
     margin-bottom: 4rem !important;
     line-height: 1.0;
@@ -460,7 +454,7 @@ body {
 }
 
 .contact-main-email {
-    font-family: "Inter", sans-serif !important;
+    font-family: var(--font-body) !important;
     font-size: 1.25rem;
     font-weight: 500;
     color: #ffffff !important;
@@ -496,24 +490,27 @@ body {
 }
 
 /* ==========================================================================
-   7. FOOTER SITE NOTES
+   8. FOOTER SITE NOTES
    ========================================================================== */
-footer {
+.footer {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 7rem 5vw;
+    padding: 7rem var(--gutter);
     text-align: left;
     color: #999999;
     font-size: 0.76rem;
-    background-color: #f9f8f6;
+    background-color: var(--bg);
     letter-spacing: 0.02em;
 }
 
 /* ==========================================================================
-   8. RESPONSIVE BREAKPOINTS ENGINE
+   9. RESPONSIVE BREAKPOINTS ENGINE
    ========================================================================== */
 @media (max-width: 1024px) {
-    .hero-fold-wrapper, .main-content-wrapper { padding: 0 4vw; }
+    .main-content-wrapper { padding: 0 4vw; }
+    .nav { padding: 2.5rem 4vw; }
+    .hero { padding: 0 4vw; }
+    .scroll-indicator { left: 4vw; }
     .exp-row {
         grid-template-columns: 1fr;
         display: flex;
@@ -537,9 +534,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .replica-header { padding: 3rem 0; }
-    .replica-nav a { margin-left: 1.8rem; font-size: 0.62rem; }
-    .replica-hero { gap: 2.5rem; margin-bottom: 5rem; }
+    .nav a { margin-left: 1.8rem; font-size: 0.62rem; }
+    .hero-headline { font-size: clamp(1.4rem, 5vw, 2.2rem) !important; margin-bottom: 2rem; }
     .inner-section { padding-top: 7rem; }
     .exp-tags { justify-content: flex-start; }
 }
@@ -547,6 +543,9 @@ footer {
 @media (max-width: 550px) {
     .toolkit-grid { grid-template-columns: 1fr; }
     .toolkit-col { border-left: none; border-right: none; padding: 1rem 0 3rem 0; }
-    .hero-fold-wrapper, .main-content-wrapper { padding: 0 1.5rem; }
+    .main-content-wrapper { padding: 0 1.5rem; }
+    .nav { padding: 2.5rem 1.5rem; }
+    .hero { padding: 0 1.5rem; }
+    .scroll-indicator { left: 1.5rem; }
     .exp-right-col { padding-left: 0; }
 }
