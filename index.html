@@ -7,16 +7,14 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="grain"></div>
-
     <canvas class="cursor-trail"></canvas>
-
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
@@ -24,20 +22,24 @@
         <div class="site">
             
             <nav class="nav">
-                <a href="#about">ABOUT</a>
-                <a href="#experience">WORK</a>
-                <a href="#skills">SKILLS</a>
-                <a href="#contact-banner">CONTACT</a>
+                <div class="nav-links">
+                    <a href="#about">ABOUT</a>
+                    <a href="#experience">WORK</a>
+                    <a href="#skills">SKILLS</a>
+                    <a href="#contact-banner">CONTACT</a>
+                </div>
             </nav>
 
             <main>
                 <section class="hero" id="about">
-                    <h1 class="hero-headline">
-                        Manjeet is a <em>Product Manager</em> based in Mumbai who thrives where the requirements are messy, and the problems are hard.
-                    </h1>
-                    <h1 class="hero-headline">
-                        He has spent his career building across healthcare platforms, compliance-heavy systems, and AI tooling, turning complexity into products that actually ship.
-                    </h1>
+                    <div class="hero-content-container">
+                        <h1 class="hero-headline">
+                            Manjeet is a <em>Product Manager</em> based in Mumbai who thrives where the requirements are messy, and the problems are hard.
+                        </h1>
+                        <h1 class="hero-headline">
+                            He has spent his career building across healthcare platforms, compliance-heavy systems, and AI tooling, turning complexity into products that actually ship.
+                        </h1>
+                    </div>
                     <div class="scroll-indicator">SCROLL &darr;</div>
                 </section>
 
@@ -49,7 +51,6 @@
                         <h2 class="section-main-title">Work</h2>
 
                         <div class="experience-list">
-                            
                             <div class="exp-row">
                                 <div class="exp-left-col">
                                     <span class="exp-number">01</span>
@@ -109,7 +110,6 @@
                                     <div class="exp-date">2020 — 2021</div>
                                 </div>
                             </div>
-
                         </div>
                     </section>
 
@@ -189,7 +189,6 @@
                             </div>
                         </div>
                     </section>
-
                 </div>
 
                 <section id="contact-banner" class="contact-red-section">
@@ -220,11 +219,11 @@
         const ctx = canvas.getContext('2d');
         
         let points = [];
-        const maxPoints = 60;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            redrawTrail();
         }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
@@ -241,11 +240,27 @@
             
             dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
 
+            // Permanent tracking: points are pushed but NEVER shifted off the array stack
             points.push({ x: mouseX, y: mouseY });
-            if (points.length > maxPoints) {
-                points.shift();
-            }
         });
+
+        function redrawTrail() {
+            if (points.length < 2) return;
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+
+            for (let i = 1; i < points.length - 1; i++) {
+                const xc = (points[i].x + points[i + 1].x) / 2;
+                const yc = (points[i].y + points[i + 1].y) / 2;
+                ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+            }
+            
+            ctx.strokeStyle = 'rgba(255, 74, 34, 0.28)'; 
+            ctx.lineWidth = 1.2; 
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.stroke();
+        }
 
         function runVisualEngine() {
             ringX += (mouseX - ringX) * 0.12;
@@ -253,32 +268,13 @@
             ring.style.transform = `translate(${ringX - 10}px, ${ringY - 10}px)`;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            if (points.length > 1) {
-                ctx.beginPath();
-                ctx.moveTo(points[0].x, points[0].y);
-
-                for (let i = 1; i < points.length - 1; i++) {
-                    const xc = (points[i].x + points[i + 1].x) / 2;
-                    const yc = (points[i].y + points[i + 1].y) / 2;
-                    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
-                }
-
-                ctx.strokeStyle = 'rgba(255, 74, 34, 0.28)'; 
-                ctx.lineWidth = 1.2; 
-                ctx.lineCap = 'round';
-                ctx.lineJoin = 'round';
-                ctx.stroke();
-            }
-
-            if (points.length > 0 && (points[points.length - 1].x === mouseX && points[points.length - 1].y === mouseY)) {
-                if (Math.random() > 0.4) points.shift(); 
-            }
+            redrawTrail();
 
             requestAnimationFrame(runVisualEngine);
         }
         requestAnimationFrame(runVisualEngine);
 
+        // Hover bindings
         document.querySelectorAll('a, .exp-tags span').forEach(interactiveElement => {
             interactiveElement.addEventListener('mouseenter', () => {
                 ring.style.transform = `scale(1.8)`;
