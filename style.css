@@ -14,7 +14,7 @@
     --ink-light: #2A2A2A;
     --ink-muted: #888888;
     --accent: #FF4D30;
-    --border: rgba(10, 10, 10, .1);
+    --border: rgba(10, 10, 10, 0.1); /* Exact 10% black opacity line variable matched from image_299c21.png */
     
     /* Strict Typography Stack Bindings */
     --font-serif: "Instrument Serif", "Georgia", serif;
@@ -103,7 +103,7 @@ body {
 }
 
 .cursor-dot {
-    width: 4px; height: 4px; background-color: var(--ink);
+    width: 6px; height: 6px; background-color: var(--ink);
     position: fixed; top: 0; left: 0; border-radius: 50%;
     pointer-events: none; z-index: 10000; will-change: transform;
 }
@@ -166,7 +166,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Perfect clean split layout logic */
+    justify-content: space-between; 
     position: relative;
     padding: var(--space-2xl) var(--gutter) var(--space-lg) var(--gutter);
     margin: 0 auto;
@@ -181,13 +181,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    flex-grow: 1; /* Maximizes flex-box content balancing mechanics */
+    flex-grow: 1; 
 }
 
-/* Tailored structural typography container blocks matching image_55443e.jpg density */
 .hero-statement {
-    max-width: 850px; /* Mathematically adjusted maximum to achieve clean 3-4 line blocks */
-    margin-bottom: 2rem; /* Closes the loose row space gaps completely */
+    max-width: 850px; 
+    margin-bottom: var(--space-md); 
 }
 
 .hero-statement:last-of-type {
@@ -196,10 +195,10 @@ body {
 
 .hero-statement p {
     font-family: var(--font-serif);
-    font-size: clamp(2.3rem, 4.4vw, 4.2rem); /* Dynamic scale with strict top layout bounds */
+    font-size: clamp(2.3rem, 4.4vw, 4.2rem); 
     font-weight: 400;
-    line-height: 1.05; /* Tightened editorial line leading execution */
-    letter-spacing: -0.02em; /* Compresses character curves together */
+    line-height: 1.05; 
+    letter-spacing: -0.02em; 
     color: var(--ink);
 }
 
@@ -209,7 +208,6 @@ body {
     font-weight: 400;
 }
 
-/* THE LOWER BOUND POSITION HINT MODULE LAYER */
 .hero-bottom {
     width: 100%;
     max-width: var(--max-width);
@@ -237,7 +235,7 @@ body {
 }
 
 /* ==========================================================================
-   5. ASYMMETRIC GRID DESCRIPTIONS SYSTEM
+   5. WORK PROJECTS SYSTEM — 3-COLUMN STRUCTURE (IMAGE_299c21.png)
    ========================================================================== */
 .inner-section {
     padding-top: var(--space-2xl);
@@ -251,7 +249,8 @@ body {
     margin-bottom: 3rem;
 }
 
-.section-tag-label {
+.section-label, .section-tag-label {
+    display: block;
     font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 400;
@@ -260,7 +259,7 @@ body {
     margin-bottom: 2.5rem;
 }
 
-.section-main-title {
+.section-main-title, .projects-heading {
     font-family: var(--font-serif);
     font-size: clamp(3rem, 7.5vw, 6.5rem);
     font-weight: 400;
@@ -270,86 +269,99 @@ body {
     line-height: 1.0;
 }
 
-.exp-row {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr;
-    gap: 4rem;
-    padding: var(--space-lg) 0;
-    border-top: 1px solid var(--border);
+.projects-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.exp-row:last-child {
+/* Exact 3-column layout blueprint extracted from Renzhi's inspector */
+.project-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 200px;
+    align-items: start;
+    gap: var(--space-md) 0;
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--border);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.project-row:last-child {
     border-bottom: 1px solid var(--border);
 }
 
-.exp-left-col {
-    display: flex;
-    gap: 3.5rem;
-}
-
-.exp-number {
+.project-num {
     font-family: var(--font-body);
     font-size: 0.65rem;
-    color: var(--ink-muted);
-    margin-top: 0.8rem;
+    color: var(--accent); /* Subtle accent number identification index styling */
 }
 
-.exp-job-details h3 {
+.project-info {
+    display: flex;
+    flex-direction: column;
+    padding-right: 3rem;
+}
+
+.project-title {
     font-family: var(--font-serif);
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 400;
     letter-spacing: -0.01em;
-    margin-bottom: 0.3rem;
+    color: var(--ink);
+    margin-bottom: 0.1rem;
+    line-height: 1.1;
 }
 
-.exp-role-title {
+.project-role {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: 1.25rem;
     color: var(--ink-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.exp-description {
+.project-desc {
     font-family: var(--font-body);
     font-size: 13px;
     line-height: 1.75;
     color: #4A4A4A;
-    max-width: 520px;
+    max-width: 580px;
     letter-spacing: -0.01em;
 }
 
-.exp-right-col {
+/* Meta Data Wrapper Matrix matching image_29b2a9.png exactly */
+.project-meta {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-end;
-    padding-top: 0.8rem;
+    gap: 0.5rem;
 }
 
-.exp-tags {
+.project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     justify-content: flex-end;
-    max-width: 280px;
 }
 
-.exp-tags span {
+/* Sharp, thin red border boxes matching your preferred layout profile */
+.project-tag {
     font-family: var(--font-body);
     font-size: 0.58rem;
+    text-transform: uppercase;
     color: var(--accent);
-    border: 1px solid rgba(255, 77, 48, 0.2);
-    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(255, 77, 48, 0.35);
+    padding: 0.35rem 0.65rem;
     letter-spacing: 0.05em;
-    border-radius: 2px;
+    border-radius: 0px; /* Forcefully crisp square alignment metrics */
 }
 
-.exp-date {
+.project-year {
     font-family: var(--font-body);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--ink-muted);
-    margin-top: 1rem;
+    margin-top: 0.2rem;
 }
 
 /* ==========================================================================
@@ -521,15 +533,16 @@ body {
    9. VIEWPORT MEDIA ADAPTATION METRICS
    ========================================================================== */
 @media (max-width: 1024px) {
-    .exp-row {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+    .project-row {
+        grid-template-columns: 40px 1fr;
+        gap: 1.5rem 0;
     }
-    .exp-right-col {
+    .project-meta {
+        grid-column: 2;
         align-items: flex-start;
-        padding-left: 5rem;
+        margin-top: 1rem;
     }
-    .exp-tags {
+    .project-tags {
         justify-content: flex-start;
     }
     .toolkit-grid {
@@ -551,11 +564,8 @@ body {
         flex-direction: column;
         gap: 2.5rem;
     }
-    .exp-left-col {
-        gap: 1.5rem;
-    }
-    .exp-right-col {
-        padding-left: 2.5rem;
+    .project-info {
+        padding-right: 0px;
     }
 }
 
@@ -568,11 +578,13 @@ body {
         border-right: none !important;
         padding: 0 0 2.5rem 0;
     }
-    .exp-left-col {
-        flex-direction: column;
-        gap: 1rem;
+    .project-row {
+        grid-template-columns: 1fr;
     }
-    .exp-right-col {
-        padding-left: 0;
+    .project-num {
+        margin-bottom: 0.2rem;
+    }
+    .project-meta {
+        grid-column: 1;
     }
 }
