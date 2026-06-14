@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manjeet Dighe — Product Manager</title>
     
+    <!-- Editorial Typography Engine: Instrument Serif & IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- VISUAL INTERACTION ENGINE LAYERS -->
     <div class="grain"></div>
     <canvas class="cursor-trail"></canvas>
     <div class="cursor-dot"></div>
@@ -21,6 +23,7 @@
     <div id="root">
         <div class="site">
             
+            <!-- FIXED TOP NAVIGATION BAR WITH OPAQUE MASK SHIELD -->
             <nav class="nav">
                 <div class="nav-inner">
                     <ul class="nav-links">
@@ -33,23 +36,24 @@
             </nav>
 
             <main>
+                <!-- HERO SECTION: FULL SCREEN VIEWPORT FLEX BLOCK -->
                 <section class="hero" id="about">
+                    
+                    <!-- HERO INNER: Compact Typography Column Width Matrix -->
                     <div class="hero-inner">
-                        
                         <div class="hero-statement">
                             <p>
                                 Manjeet is a <em>Product Manager</em> based in <em>Mumbai</em> who thrives where the requirements are messy, and the problems are hard.
                             </p>
                         </div>
-
                         <div class="hero-statement">
                             <p>
                                 He drives product strategy and delivery across digital healthcare and AI initiatives, backed by dual Master's degrees in technology and project management.
                             </p>
                         </div>
-
                     </div>
                     
+                    <!-- HERO BOTTOM: Anchored via natural Flex-End Flow Metrics -->
                     <div class="hero-bottom">
                         <div class="hero-scroll-hint">
                             <span class="hero-scroll-label">SCROLL</span>
@@ -58,16 +62,20 @@
                             </svg>
                         </div>
                     </div>
+                    
                 </section>
 
+                <!-- MAIN INTERACTION WRAPPER BOUND TO CONTAINER EDGE MATRIX -->
                 <div class="main-content-wrapper">
 
+                    <!-- WORK SECTION (01) -->
                     <section id="experience" class="inner-section">
                         <div class="section-divider-line"></div>
                         <div class="section-tag-label">01 — EXPERIENCE</div>
                         <h2 class="section-main-title">Work</h2>
 
                         <div class="experience-list">
+                            <!-- WORK ITEM 01 -->
                             <div class="exp-row">
                                 <div class="exp-left-col">
                                     <span class="exp-number">01</span>
@@ -89,6 +97,7 @@
                                 </div>
                             </div>
 
+                            <!-- WORK ITEM 02 -->
                             <div class="exp-row">
                                 <div class="exp-left-col">
                                     <span class="exp-number">02</span>
@@ -109,6 +118,7 @@
                                 </div>
                             </div>
 
+                            <!-- WORK ITEM 03 -->
                             <div class="exp-row">
                                 <div class="exp-left-col">
                                     <span class="exp-number">03</span>
@@ -130,6 +140,7 @@
                         </div>
                     </section>
 
+                    <!-- TOOLKIT SECTION (02) -->
                     <section id="skills" class="inner-section">
                         <div class="section-divider-line"></div>
                         <div class="section-tag-label">02 — TOOLKIT</div>
@@ -185,6 +196,7 @@
                             </div>
                         </div>
 
+                        <!-- EDUCATION ARRANGEMENT NODE -->
                         <div class="nested-education-wrapper">
                             <span class="education-master-tag">EDUCATION</span>
                             
@@ -208,6 +220,7 @@
                     </section>
                 </div>
 
+                <!-- OVER-EXTENDED BREAKOUT CONTACT BANNER BLOCK -->
                 <section id="contact-banner" class="contact-red-section">
                     <div class="contact-container">
                         <div class="contact-section-tag">03 — CONTACT</div>
@@ -224,6 +237,7 @@
                 </section>
             </main>
 
+            <!-- FOOTER CONTAINER -->
             <footer class="footer">
                 <p>&copy; 2026 Manjeet Dighe. All rights reserved.</p>
             </footer>
@@ -231,6 +245,7 @@
         </div>
     </div>
 
+    <!-- MOUSE INTERACTIONS VECTOR DRAW SCRIPT ENGINE -->
     <script>
         const canvas = document.querySelector('.cursor-trail');
         const ctx = canvas.getContext('2d');
