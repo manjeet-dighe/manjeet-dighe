@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CORE RENDERING ENGINE & GRID ALIGNMENT VALUES
+   1. CORE RENDERING ENGINE & SIGNATURE SELECTION COLOR MECHANICS
    ========================================================================== */
 *, *:before, *:after {
     box-sizing: border-box;
@@ -16,11 +16,10 @@
     --accent: #FF4D30;
     --border: rgba(10, 10, 10, .1);
     
-    /* True Font Family Configurations */
+    /* Strict Typography Stack Bindings */
     --font-serif: "Instrument Serif", "Georgia", serif;
     --font-body: "IBM Plex Mono", "Courier New", monospace;
     
-    /* Spacing matrix configurations verified from inspector dimensions */
     --space-xs: .5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
@@ -28,7 +27,17 @@
     --space-xl: 6rem;
     --space-2xl: 10rem;
     --max-width: 1000px;
-    --gutter: clamp(1.5rem, 5vw, 5rem); /* Strict page layout margin limits */
+    --gutter: clamp(1.5rem, 5vw, 5rem);
+}
+
+/* SIGNATURE ORANGE SELECTION FIELD - AS SEEN IN IMAGE_55443e.jpg */
+::-moz-selection {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+::selection {
+    background-color: var(--accent);
+    color: #ffffff;
 }
 
 html {
@@ -53,7 +62,6 @@ body {
     position: relative;
 }
 
-/* Central layout bound framework container */
 .main-content-wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -61,7 +69,7 @@ body {
 }
 
 /* ==========================================================================
-   2. RENDERING EFFECTS LAYER (PERMANENT INTERACTION CHANNELS)
+   2. RENDERING CANVAS & MICRO-NOISE ANCHORS
    ========================================================================== */
 .cursor-trail {
     position: fixed;
@@ -112,15 +120,13 @@ body {
 }
 
 /* ==========================================================================
-   3. OPAQUE FIXED NAVIGATION MASK (PREVENTS SCROLL OVERLAP COLLISION)
+   3. FIXED TOP NAV SHIELD
    ========================================================================== */
 .nav {
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 100; /* Dominant layer indexing matched to live layout definitions */
-    background-color: #F5F5F0; /* Solid opaque color structure matches canvas background */
+    top: 0px; left: 0px; right: 0px;
+    z-index: 100;
+    background-color: var(--bg);
     padding: 1.5rem var(--gutter);
 }
 
@@ -153,18 +159,17 @@ body {
 .nav-link:hover { opacity: 0.5; }
 
 /* ==========================================================================
-   4. HERO / ABOUT SECTION ENGINE (EXACT COMPOSITOR MATCH)
+   4. THE MIRRORED HERO VIEWPORT (AS SEEN IN IMAGE_55443e.jpg)
    ========================================================================== */
 .hero {
     min-height: 100vh;
     width: 100%;
-    max-width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Perfect clean split layout logic */
     position: relative;
-    padding: var(--space-2xl) var(--gutter) var(--space-lg); /* Top padding shields scrolling artifacts */
-    margin: 0px auto;
+    padding: var(--space-2xl) var(--gutter) var(--space-lg) var(--gutter);
+    margin: 0 auto;
     background-color: var(--bg);
 }
 
@@ -174,48 +179,49 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    text-align: left; /* Restores strict horizontal left tracking alignment lines */
+    align-items: flex-start;
+    justify-content: center;
+    flex-grow: 1; /* Maximizes flex-box content balancing mechanics */
 }
 
+/* Tailored structural typography container blocks matching image_55443e.jpg density */
 .hero-statement {
-    max-width: 780px; /* Constrains inline text wrapping metrics completely */
-    margin-bottom: var(--space-lg);
+    max-width: 850px; /* Mathematically adjusted maximum to achieve clean 3-4 line blocks */
+    margin-bottom: 2rem; /* Closes the loose row space gaps completely */
 }
 
 .hero-statement:last-of-type {
-    margin-bottom: 0;
+    margin-bottom: 0px;
 }
 
-/* Typographic properties verified directly from her Computed inspect console panel */
 .hero-statement p {
     font-family: var(--font-serif);
-    font-size: clamp(2.3rem, 4vw, 4rem); /* Exact typography scaling rules */
+    font-size: clamp(2.3rem, 4.4vw, 4.2rem); /* Dynamic scale with strict top layout bounds */
     font-weight: 400;
-    line-height: 1; /* Completely tightens text block leading gaps */
-    letter-spacing: -.01em; /* Extracted negative tracking metrics */
+    line-height: 1.05; /* Tightened editorial line leading execution */
+    letter-spacing: -0.02em; /* Compresses character curves together */
     color: var(--ink);
-    text-transform: none;
 }
 
-/* Explicit style overrides for your custom inline italic blocks */
 .hero-statement p em {
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
 }
 
+/* THE LOWER BOUND POSITION HINT MODULE LAYER */
 .hero-bottom {
-    position: absolute;
-    bottom: var(--space-lg);
-    left: var(--gutter);
-    right: var(--gutter);
-}
-
-.hero-scroll-hint {
+    width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
+    justify-content: flex-start;
+}
+
+.hero-scroll-hint {
+    display: inline-flex;
     align-items: center;
+    gap: .6rem;
     color: var(--ink-muted);
 }
 
@@ -227,12 +233,11 @@ body {
 }
 
 .hero-scroll-arrow {
-    margin-left: 0.5rem;
     display: block;
 }
 
 /* ==========================================================================
-   5. EXP-ROW GRID CORES (FIXES ASYMMETRIC COLUMN DRIFT)
+   5. ASYMMETRIC GRID DESCRIPTIONS SYSTEM
    ========================================================================== */
 .inner-section {
     padding-top: var(--space-2xl);
@@ -265,10 +270,9 @@ body {
     line-height: 1.0;
 }
 
-/* Grid parameters explicitly separating description texts from timeline anchors */
 .exp-row {
     display: grid;
-    grid-template-columns: 2.5fr 1fr; /* Solid column anchoring prevents text drift */
+    grid-template-columns: 2.5fr 1fr;
     gap: 4rem;
     padding: var(--space-lg) 0;
     border-top: 1px solid var(--border);
@@ -315,12 +319,11 @@ body {
     letter-spacing: -0.01em;
 }
 
-/* Rigid right alignment row container keeping tags and timeline dates synchronized */
 .exp-right-col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end; /* Snaps timeline and tags flush right to the container wall */
+    align-items: flex-end;
     padding-top: 0.8rem;
 }
 
@@ -346,11 +349,11 @@ body {
     font-family: var(--font-body);
     font-size: 0.78rem;
     color: var(--ink-muted);
-    margin-top: 1rem; /* Maintains vertical buffer alignment under tag blocks */
+    margin-top: 1rem;
 }
 
 /* ==========================================================================
-   6. SKILLS TOOLKIT GRID CHANNELS
+   6. SKILLS TOOLKIT LAYER MAPPING
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -396,7 +399,7 @@ body {
 }
 
 /* ==========================================================================
-   7. NESTED ACADEMIC SUBGRID SECTOR
+   7. NESTED ACADEMIC MATRIX SETUP
    ========================================================================== */
 .nested-education-wrapper {
     margin-top: var(--space-xl);
@@ -438,7 +441,7 @@ body {
 }
 
 /* ==========================================================================
-   8. DYNAMIC OVER-EXTENDED RED CONTACT ROW BANNER
+   8. RED BREAKOUT INTERACTION SECTION
    ========================================================================== */
 .contact-red-section {
     background-color: var(--accent);
@@ -506,9 +509,6 @@ body {
     color: rgba(255,255,255,0.2);
 }
 
-/* ==========================================================================
-   9. FOOTER SPECIFICATIONS
-   ========================================================================== */
 .footer {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -518,7 +518,7 @@ body {
 }
 
 /* ==========================================================================
-   10. MOBILE BREAKPOINT LAYOUT ADAPTATIONS
+   9. VIEWPORT MEDIA ADAPTATION METRICS
    ========================================================================== */
 @media (max-width: 1024px) {
     .exp-row {
