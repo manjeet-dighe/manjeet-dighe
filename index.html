@@ -282,19 +282,13 @@
         }
         requestAnimationFrame(runVisualEngine);
 
-        // Interaction Hover States for standard anchors and rows
-        document.querySelectorAll('a, .project-row, .hero-scroll-hint').forEach(element => {
+        // Precision Framing Hover Modifiers for Header links and targeted anchors
+        document.querySelectorAll('.nav-links a, .contact-sub-links a, .contact-main-email, .hero-scroll-hint').forEach(element => {
             element.addEventListener('mouseenter', () => {
-                ring.style.transform = `scale(1.8)`;
-                ring.style.borderColor = '#FF4D30';
-                ring.style.backgroundColor = 'rgba(255, 77, 48, 0.04)';
-                dot.style.backgroundColor = '#FF4D30';
+                ring.classList.add('cursor-ring--hover');
             });
             element.addEventListener('mouseleave', () => {
-                ring.style.transform = `scale(1.0)`;
-                ring.style.borderColor = 'rgba(0, 0, 0, 0.25)';
-                ring.style.backgroundColor = 'transparent';
-                dot.style.backgroundColor = '#0A0A0A';
+                ring.classList.remove('cursor-ring--hover');
             });
         });
     </script>
