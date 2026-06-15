@@ -14,7 +14,7 @@
     --ink-light: #2A2A2A;
     --ink-muted: #888888;
     --accent: #FF4D30;
-    --border: rgba(10, 10, 10, 0.1); /* Exact 10% black opacity line variable matched from image_299c21.png */
+    --border: rgba(10, 10, 10, 0.1); /* Exact 10% black opacity line variable matched from Renzhi's inspector */
     
     /* Strict Typography Stack Bindings */
     --font-serif: "Instrument Serif", "Georgia", serif;
@@ -30,7 +30,7 @@
     --gutter: clamp(1.5rem, 5vw, 5rem);
 }
 
-/* SIGNATURE ORANGE SELECTION FIELD - AS SEEN IN IMAGE_55443e.jpg */
+/* SIGNATURE ORANGE SELECTION FIELD */
 ::-moz-selection {
     background-color: var(--accent);
     color: #ffffff;
@@ -102,16 +102,27 @@ body {
     90% { transform:translate(-10%, 10%); }
 }
 
+/* Unvarying Base Elements: Always stays clean without breaking character into solid orbs */
 .cursor-dot {
-    width: 6px; height: 6px; background-color: var(--ink);
+    width: 6px; height: 6px; 
+    background-color: var(--accent); /* Permanent signature color accent matching Renzhi's live state */
     position: fixed; top: 0; left: 0; border-radius: 50%;
     pointer-events: none; z-index: 10000; will-change: transform;
 }
 
 .cursor-ring {
-    width: 20px; height: 20px; border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 20px; height: 20px; 
+    border: 1px solid rgba(0, 0, 0, 0.25);
     position: fixed; top: 0; left: 0; border-radius: 50%;
     pointer-events: none; z-index: 9999; will-change: transform;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
+}
+
+/* Fluid Navigation Expand Modifier */
+.cursor-ring--hover {
+    width: 32px;
+    height: 32px;
+    border-color: var(--accent);
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -156,10 +167,11 @@ body {
     transition: opacity 0.3s;
 }
 
-.nav-link:hover { opacity: 0.5; }
+/* Links stay crisp and dark black without shifting hues */
+.nav-link:hover { opacity: 1; }
 
 /* ==========================================================================
-   4. THE MIRRORED HERO VIEWPORT (AS SEEN IN IMAGE_55443e.jpg)
+   4. THE MIRRORED HERO VIEWPORT
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -235,7 +247,7 @@ body {
 }
 
 /* ==========================================================================
-   5. WORK PROJECTS SYSTEM — 3-COLUMN STRUCTURE (IMAGE_299c21.png)
+   5. WORK PROJECTS SYSTEM — 3-COLUMN STRUCTURE & MATCHED INTERACTIONS
    ========================================================================== */
 .inner-section {
     padding-top: var(--space-2xl);
@@ -275,7 +287,7 @@ body {
     flex-direction: column;
 }
 
-/* Exact 3-column layout blueprint extracted from Renzhi's inspector */
+/* Precise 3-column layout blueprint extracted from Renzhi's inspector */
 .project-row {
     display: grid;
     grid-template-columns: 60px 1fr 200px;
@@ -291,10 +303,17 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
+/* Starts as a neutral quiet shade matching Renzhi's row default states */
 .project-num {
     font-family: var(--font-body);
     font-size: 0.65rem;
-    color: var(--accent); /* Subtle accent number identification index styling */
+    color: var(--ink-muted);
+    transition: color 0.2s ease-in-out;
+}
+
+/* Triggers color flip to accent orange strictly within hovered block bounds */
+.project-row:hover .project-num {
+    color: var(--accent);
 }
 
 .project-info {
@@ -330,7 +349,7 @@ body {
     letter-spacing: -0.01em;
 }
 
-/* Meta Data Wrapper Matrix matching image_29b2a9.png exactly */
+/* Meta Data Wrapper Matrix matching your precise panel metrics */
 .project-meta {
     display: flex;
     flex-direction: column;
@@ -354,7 +373,7 @@ body {
     border: 1px solid rgba(255, 77, 48, 0.35);
     padding: 0.35rem 0.65rem;
     letter-spacing: 0.05em;
-    border-radius: 0px; /* Forcefully crisp square alignment metrics */
+    border-radius: 0px; 
 }
 
 .project-year {
