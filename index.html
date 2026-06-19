@@ -23,6 +23,7 @@
             
             <nav class="nav">
                 <div class="nav-inner">
+                    <a href="#about" class="nav-brand">MANJEET DIGHE</a>
                     <ul class="nav-links">
                         <li><a href="#about" class="nav-link">ABOUT</a></li>
                         <li><a href="#experience" class="nav-link">WORK</a></li>
@@ -36,12 +37,12 @@
                 <section class="hero" id="about">
                     
                     <div class="hero-inner">
-                        <div class="hero-statement">
+                        <div class="hero-statement primary-statement scroll-animate-item">
                             <p>
-                                Manjeet is a <em>Product Manager</em> based in <em>Mumbai</em> who thrives where the requirements are messy, and the problems are hard.
+                                Manjeet is a <em>Product Manager</em> based in Mumbai who thrives where the requirements are messy, and the problems are hard.
                             </p>
                         </div>
-                        <div class="hero-statement">
+                        <div class="hero-statement secondary-statement scroll-animate-item">
                             <p>
                                 He drives product strategy and delivery across digital healthcare and AI initiatives, backed by dual Master's degrees in technology and project management.
                             </p>
@@ -49,7 +50,7 @@
                     </div>
                     
                     <div class="hero-bottom">
-                        <div class="hero-scroll-hint">
+                        <div class="hero-scroll-hint animated-bounce">
                             <span class="hero-scroll-label">SCROLL</span>
                             <svg class="hero-scroll-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -61,14 +62,14 @@
 
                 <div class="main-content-wrapper">
 
-                    <section id="experience" class="inner-section projects section-projects">
+                    <section id="experience" class="inner-section projects section-projects scroll-animate-item">
                         <div class="section-divider-line"></div>
                         <span class="section-label">01 — EXPERIENCE</span>
                         <h2 class="projects-heading">Work</h2>
 
                         <div class="projects-list">
                             
-                            <div class="project-row">
+                            <div class="project-row scroll-animate-item">
                                 <span class="project-num">01</span>
                                 <div class="project-info">
                                     <h3 class="project-title">Optum</h3>
@@ -87,7 +88,7 @@
                                 </div>
                             </div>
 
-                            <div class="project-row">
+                            <div class="project-row scroll-animate-item">
                                 <span class="project-num">02</span>
                                 <div class="project-info">
                                     <h3 class="project-title">Change Healthcare</h3>
@@ -105,7 +106,7 @@
                                 </div>
                             </div>
 
-                            <div class="project-row">
+                            <div class="project-row scroll-animate-item">
                                 <span class="project-num">03</span>
                                 <div class="project-info">
                                     <h3 class="project-title">Colsh Consultants</h3>
@@ -125,7 +126,7 @@
                         </div>
                     </section>
 
-                    <section id="skills" class="inner-section">
+                    <section id="skills" class="inner-section scroll-animate-item">
                         <div class="section-divider-line"></div>
                         <div class="section-tag-label">02 — TOOLKIT</div>
                         <h2 class="section-main-title">Skills & Tools</h2>
@@ -180,7 +181,7 @@
                             </div>
                         </div>
 
-                        <div class="nested-education-wrapper">
+                        <div class="nested-education-wrapper scroll-animate-item">
                             <span class="education-master-tag">EDUCATION</span>
                             
                             <div class="edu-row">
@@ -203,7 +204,7 @@
                     </section>
                 </div>
 
-                <section id="contact-banner" class="contact-red-section">
+                <section id="contact-banner" class="contact-red-section scroll-animate-item">
                     <div class="contact-container">
                         <div class="contact-section-tag">03 — CONTACT</div>
                         <h2 class="contact-title">Let's Talk</h2>
@@ -282,14 +283,35 @@
         }
         requestAnimationFrame(runVisualEngine);
 
-        // Precision Framing Hover Modifiers for Header links and targeted anchors
-        document.querySelectorAll('.nav-links a, .contact-sub-links a, .contact-main-email, .hero-scroll-hint').forEach(element => {
+        // Precision Framing Hover Modifiers for Identity, Navigation Links, and Email Callouts
+        document.querySelectorAll('.nav-brand, .nav-links a, .contact-sub-links a, .contact-main-email, .hero-scroll-hint').forEach(element => {
             element.addEventListener('mouseenter', () => {
                 ring.classList.add('cursor-ring--hover');
             });
             element.addEventListener('mouseleave', () => {
                 ring.classList.remove('cursor-ring--hover');
             });
+        });
+
+        // ==========================================================================
+        // VIEWPORT ANIMATION MECHANICS ENGINE
+        // To play animations ONLY ONCE on scroll down, simply change `once: false` to `true`.
+        // ==========================================================================
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                } else {
+                    entry.target.classList.remove('reveal-active');
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: "0px 0px -40px 0px"
+        });
+
+        document.querySelectorAll('.scroll-animate-item').forEach((item) => {
+            scrollObserver.observe(item);
         });
     </script>
 </body>
