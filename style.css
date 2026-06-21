@@ -190,6 +190,11 @@ body {
     font-weight: 400;
     color: var(--ink);
     letter-spacing: 0.15em;
+    transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+    opacity: 0.4;
 }
 
 /* ==========================================================================
@@ -233,10 +238,10 @@ body {
     color: var(--ink);
 }
 
-/* Straight upright formatting for emphasis tags inside primary text */
+/* Styled italic formatting for core title emphasis tag */
 .primary-statement p em {
     font-family: var(--font-serif);
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
 }
 
@@ -485,7 +490,7 @@ body {
     font-size: 0.82rem;
     color: var(--ink-light);
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.03);
+    border-bottom: 1px solid rgba(0,0,0,0.08); /* Adjusted to make divider lines clearly visible */
 }
 
 .toolkit-list li:last-child {
