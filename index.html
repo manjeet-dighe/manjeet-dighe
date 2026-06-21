@@ -37,12 +37,12 @@
                 <section class="hero" id="about">
                     
                     <div class="hero-inner">
-                        <div class="hero-statement primary-statement scroll-animate-item">
+                        <div class="hero-statement primary-statement">
                             <p>
                                 Manjeet is a <em>Product Manager</em> based in Mumbai who thrives where the requirements are messy, and the problems are hard.
                             </p>
                         </div>
-                        <div class="hero-statement secondary-statement scroll-animate-item">
+                        <div class="hero-statement secondary-statement">
                             <p>
                                 He drives product strategy and delivery across digital healthcare and AI initiatives, backed by dual Master's degrees in technology and project management.
                             </p>
@@ -310,6 +310,7 @@
             rootMargin: "0px 0px -40px 0px"
         });
 
+        // Observes all below-fold portfolio content blocks
         document.querySelectorAll('.scroll-animate-item').forEach((item) => {
             scrollObserver.observe(item);
         });
