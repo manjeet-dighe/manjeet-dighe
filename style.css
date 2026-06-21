@@ -221,7 +221,7 @@ body {
 /* Primary Intro Layout Formatting */
 .primary-statement {
     max-width: 850px; 
-    margin-bottom: 3.5rem; /* Increased structural layout gap spacing */
+    margin-bottom: 3.5rem; /* Increased structural space gap */
 }
 
 .primary-statement p {
@@ -233,23 +233,24 @@ body {
     color: var(--ink);
 }
 
-/* Straight formatting adjustment for the emphasis tag */
+/* Straight upright formatting for emphasis tags inside primary text */
 .primary-statement p em {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
 }
 
-/* Subheading Secondary statement format alignment */
+/* Subheading Secondary statement format alignment matching parent family */
 .secondary-statement {
     max-width: 680px;
 }
 
 .secondary-statement p {
-    font-family: var(--font-body);
-    font-size: clamp(0.85rem, 1.2vw, 1.0rem);
-    font-weight: 300;
-    line-height: 1.7;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 400;
+    line-height: 1.4;
     color: var(--ink-light);
     opacity: 0.75; /* Softened text layout color presentation metrics */
 }
@@ -287,7 +288,7 @@ body {
 }
 
 /* ==========================================================================
-   5. WORK PROJECTS LAYOUT — EXACT 3-COLUMN BOUNDS
+   5. WORK PROJECTS LAYOUT — RESPONSIVE FLEX MATRIX OVERRIDES
    ========================================================================== */
 .inner-section {
     padding-top: var(--space-2xl);
@@ -329,7 +330,7 @@ body {
 
 .project-row {
     display: grid;
-    grid-template-columns: 60px 1fr 200px;
+    grid-template-columns: 60px 1fr minmax(0, 200px); /* Gracefully shrinks on middle screens without overflowing */
     align-items: start;
     gap: var(--space-md) 0;
     padding: var(--space-md) 0;
@@ -379,9 +380,10 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* Scales fluidly across viewports using responsive typography layout curves */
 .project-desc {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: clamp(0.8rem, 1.5vw, 0.875rem);
     line-height: 1.75;
     color: #4A4A4A;
     max-width: 580px;
@@ -658,7 +660,7 @@ body {
 
 @media (max-width: 550px) {
     .nav-brand {
-        display: none; /* Safely hides the left branding text label only on extremely narrow device limits */
+        display: none; /* Safely hides left branding label text only on narrow mobile screens */
     }
     .toolkit-grid {
         grid-template-columns: 1fr;
@@ -668,6 +670,12 @@ body {
         border-right: none !important;
         padding: 0 0 2.5rem 0;
     }
+    
+    /* Bumps layout text node size up on small viewports for immediate crisp scanning */
+    .toolkit-col-title {
+        font-size: 0.8rem;
+    }
+    
     .project-row {
         grid-template-columns: 1fr;
     }
