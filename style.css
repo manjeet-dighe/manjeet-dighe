@@ -54,7 +54,12 @@ body {
     background-color: var(--bg);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none;
+    cursor: none; /* Globally removes the system default pointer cursor */
+}
+
+/* Force complete concealment of the browser native pointer across all interactive elements */
+a, .skill-item, button {
+    cursor: none !important;
 }
 
 #root, .site {
@@ -110,24 +115,18 @@ body {
 }
 
 .cursor-ring {
-    width: 40px; height: 40px; /* Base size upscaled to mirror Renzhi's spatial profile */
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 40px; height: 40px; /* Refined upscale baseline scale profile mapping */
+    border: 1px solid #000000; /* Crisp, solid non-transparent outline */
     position: fixed; top: 0; left: 0; border-radius: 50%;
     pointer-events: none; z-index: 9999; will-change: transform;
-    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), height 0.35s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.25s ease;
 }
 
-/* Nav Interface Hover Changes */
+/* Controlled expansion module to 52px turning solid orange across all target hovers */
 .cursor-ring--hover {
+    width: 52px;
+    height: 52px;
     border-color: var(--accent);
-}
-
-/* Skills Lens Interaction Module (Matches the video framing expansion style) */
-.cursor-ring--skills-hover {
-    width: 76px;
-    height: 76px;
-    border-color: rgba(255, 77, 48, 0.5);
-    background-color: rgba(255, 77, 48, 0.01);
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -427,7 +426,7 @@ body {
 }
 
 /* ==========================================================================
-   6. SKILLS TOOLKIT LAYER WITH INTERACTIVE ACCENT BORDERS
+   6. SKILLS TOOLKIT LAYER WITH DYNAMIC COUPLING INTERACTIONS
    ========================================================================== */
 .toolkit-grid {
     display: grid;
@@ -482,12 +481,20 @@ body {
     list-style: none;
 }
 
-.toolkit-list li {
+/* Interactive alignment hooks for list parsing */
+.skill-item {
     font-family: var(--font-body);
     font-size: 0.82rem;
     color: var(--ink-light);
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08); /* Retained subtle grid line visibility indicators */
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: padding-left 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+}
+
+/* Quiet lateral padding drift execution to mirror interactive feedback loop link profile */
+.skill-item:hover {
+    padding-left: 8px;
+    color: var(--ink);
 }
 
 .toolkit-list li:last-child {
