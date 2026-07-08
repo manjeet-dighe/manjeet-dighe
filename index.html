@@ -276,7 +276,7 @@
             ringX += (mouseX - ringX) * 0.12;
             ringY += (mouseY - ringY) * 0.12;
             
-            // Central alignment matrix math applied uniformly across scale sizes via CSS transformations
+            // Central alignment transformation mapping
             ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -286,7 +286,7 @@
         }
         requestAnimationFrame(runVisualEngine);
 
-        // Standard Hover Event Modifiers
+        // Navigation Elements Tracking States
         document.querySelectorAll('.nav-brand, .nav-links a, .contact-sub-links a, .contact-main-email, .hero-scroll-hint').forEach(element => {
             element.addEventListener('mouseenter', () => {
                 ring.classList.add('cursor-ring--hover');
@@ -296,13 +296,13 @@
             });
         });
 
-        // Expanded Lens Interaction Trigger for Individual Skills
+        // Skills Items Tracking States
         document.querySelectorAll('.skill-item').forEach(element => {
             element.addEventListener('mouseenter', () => {
-                ring.classList.add('cursor-ring--skills-hover');
+                ring.classList.add('cursor-ring--hover');
             });
             element.addEventListener('mouseleave', () => {
-                ring.classList.remove('cursor-ring--skills-hover');
+                ring.classList.remove('cursor-ring--hover');
             });
         });
 
