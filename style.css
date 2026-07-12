@@ -627,7 +627,7 @@ a, .skill-item, button {
 }
 
 /* ==========================================================================
-   9. VIEWPORT MEDIA ADAPTATION METRICS
+   9. VIEWPORT MEDIA ADAPTATION METRICS (DESKTOP BACKUP OVERRIDES)
    ========================================================================== */
 @media (max-width: 1024px) {
     .project-row {
@@ -653,9 +653,6 @@ a, .skill-item, button {
 @media (max-width: 768px) {
     :root {
         --gutter: 2.5rem; 
-    }
-    .hero {
-        padding-top: var(--space-xl);
     }
     .edu-row {
         flex-direction: column;
@@ -691,5 +688,71 @@ a, .skill-item, button {
     }
     .project-meta {
         grid-column: 1;
+    }
+}
+
+/* ==========================================================================
+   10. ISOLATED MOBILE VIEWPORT OVERHAUL (TIGHTENED VERTICAL SPACING)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Let the Hero Section collapse naturally and fix the spacing beneath the nav bar */
+    .hero {
+        min-height: auto;
+        padding-top: 6.5rem;
+        padding-bottom: 3rem;
+    }
+    
+    /* Pull your main statement text and subheadings closer together */
+    .primary-statement {
+        margin-bottom: 1.8rem;
+    }
+    
+    /* Overhaul the massive desktop gaps between sections */
+    .inner-section {
+        padding-top: 3.5rem;
+    }
+    
+    .section-divider-line {
+        margin-bottom: 1.8rem;
+    }
+    
+    .section-label, .section-tag-label {
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-main-title, .projects-heading {
+        margin-bottom: 2rem;
+    }
+    
+    /* Tighten up the trailing gap after the single-column toolkit expansion */
+    .toolkit-grid {
+        margin-bottom: 2rem;
+    }
+    
+    /* Reduce the gap separating the toolkit grid from the nested education list headings */
+    .nested-education-wrapper {
+        margin-top: 2rem;
+    }
+    
+    .education-master-tag {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Compress the vast red contact banner and control spacing boundaries below it */
+    .contact-red-section {
+        margin-top: 4.5rem;
+        padding: 4rem 0 3.5rem 0;
+    }
+    
+    .contact-section-tag {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-title {
+        margin-bottom: 1.8rem;
+    }
+    
+    .contact-email-wrapper {
+        margin-bottom: 3.5rem;
     }
 }
