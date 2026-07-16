@@ -23,9 +23,9 @@
     --space-xs: .5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
-    --space-lg: 4rem;
-    --space-xl: 6rem;
-    --space-2xl: 10rem;
+    --space-lg: 3.5rem;
+    --space-xl: 5rem;
+    --space-2xl: 6rem; /* Tightened from 10rem to match balanced desktop editorial spacing */
     --max-width: 1000px;
     --gutter: clamp(1.5rem, 5vw, 5rem);
 }
@@ -115,15 +115,15 @@ a, .skill-item, button {
 }
 
 .cursor-ring {
-    width: 40px; height: 40px; /* Refined upscale baseline scale profile mapping */
-    border: 1px solid #000000; /* Crisp, solid non-transparent outline */
+    width: 40px; height: 40px; 
+    border: 1px solid #000000; 
     position: fixed; top: 0; left: 0; border-radius: 50%;
     pointer-events: none; z-index: 9999; will-change: transform;
     transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.25s ease;
 }
 
-/* Controlled expansion module to 52px turning solid orange across all target hovers */
-.cursor-ring--hover {
+/* Hover class bound to script.js interaction loops */
+.cursor-ring.expanded-lens {
     width: 52px;
     height: 52px;
     border-color: var(--accent);
@@ -152,7 +152,7 @@ a, .skill-item, button {
 .project-row:nth-child(3) { transition-delay: 0.25s; }
 
 /* ==========================================================================
-   3. FIXED TOP NAV SHIELD (VISUALLY BALANCED IDENTITY)
+   3. FIXED TOP NAV SHIELD (WITH DYNAMIC TRANSITION BOTTOM SHELF)
    ========================================================================== */
 .nav {
     position: fixed;
@@ -160,6 +160,13 @@ a, .skill-item, button {
     z-index: 100;
     background-color: var(--bg);
     padding: 1.5rem var(--gutter);
+    transition: border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.4s ease;
+    border-bottom: 1px solid rgba(10, 10, 10, 0); /* Starts completely transparent */
+}
+
+/* Triggered by script.js scroll state listener */
+.nav.scrolled {
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08); /* Fades in subtly on scroll */
 }
 
 .nav-inner {
@@ -308,6 +315,11 @@ a, .skill-item, button {
     margin-bottom: 3rem;
 }
 
+/* Fix for the double line: we omit display when positioned directly adjacent to a bordered block */
+.inner-section + .inner-section .section-divider-line {
+    display: none;
+}
+
 .section-label, .section-tag-label {
     display: block;
     font-family: var(--font-body);
@@ -426,45 +438,33 @@ a, .skill-item, button {
 }
 
 /* ==========================================================================
-   6. SKILLS TOOLKIT LAYER WITH DYNAMIC COUPLING INTERACTIONS
+   6. SKILLS TOOLKIT — CLEAN FLOATING COLUMNS & MUTED UNDERLINES (MIMICING RENZHI)
    ========================================================================== */
 .toolkit-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
+    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     margin-bottom: var(--space-xl);
 }
 
 .toolkit-col {
     position: relative;
-    border-left: 1px solid var(--border);
     padding: var(--space-md) 1.5rem var(--space-lg) 1.5rem;
     background-color: transparent;
     transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.toolkit-col::before {
+/* Subtle, Floating Vertical Border Dividers that don't clamp hard onto the borders */
+.toolkit-col + .toolkit-col::before {
     content: '';
     position: absolute;
-    top: -1px; left: 0;
-    width: 32px; height: 2px;
-    background-color: var(--accent);
-    opacity: 0;
-    transition: opacity 0.4s ease, width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.toolkit-col:last-child {
-    border-right: 1px solid var(--border);
-}
-
-.toolkit-col:hover {
-    background-color: rgba(255, 77, 48, 0.018);
-}
-
-.toolkit-col:hover::before {
-    opacity: 1;
-    width: 100%;
+    top: 20%;
+    left: 0;
+    height: 60%;
+    width: 1px;
+    background-color: rgba(10, 10, 10, 0.06);
 }
 
 .toolkit-col-title {
@@ -481,23 +481,23 @@ a, .skill-item, button {
     list-style: none;
 }
 
-/* Interactive alignment hooks for list parsing */
+/* Clean, transparent skill lines matching Renzhi's portfolio styling */
 .skill-item {
     font-family: var(--font-body);
     font-size: 0.82rem;
     color: var(--ink-light);
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(10, 10, 10, 0.04); /* Ultra-subtle, transparent underline */
     transition: padding-left 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
 }
 
-/* Quiet lateral padding drift execution to mirror interactive feedback loop link profile */
+/* Interactive sliding indicator shift on mouse hover */
 .skill-item:hover {
     padding-left: 8px;
     color: var(--ink);
 }
 
-.toolkit-list li:last-child {
+.toolkit-list li:last-child .skill-item {
     border-bottom: none;
 }
 
@@ -627,7 +627,7 @@ a, .skill-item, button {
 }
 
 /* ==========================================================================
-   9. VIEWPORT MEDIA ADAPTATION METRICS (DESKTOP BACKUP OVERRIDES)
+   9. VIEWPORT MEDIA ADAPTATION METRICS
    ========================================================================== */
 @media (max-width: 1024px) {
     .project-row {
@@ -646,7 +646,10 @@ a, .skill-item, button {
         grid-template-columns: repeat(2, 1fr);
     }
     .toolkit-col:nth-child(2) {
-        border-right: 1px solid var(--border);
+        border-right: none;
+    }
+    .toolkit-col::before {
+        display: none; /* Turn off vertical lines for non-desktop stacks */
     }
 }
 
