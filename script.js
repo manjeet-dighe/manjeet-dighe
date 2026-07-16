@@ -27,8 +27,10 @@ function renderCursorLoop() {
 requestAnimationFrame(renderCursorLoop);
 
 // --- Element Interaction Tracking ---
-// Elements that trigger the hover state (subtle cursor expansion)
-const interactiveElements = document.querySelectorAll('.skill-item, .nav-link, .nav-brand');
+// Aggressively targets all skill rows, list items, navigation links, and the branding logo
+const interactiveElements = document.querySelectorAll(
+  '.toolkit-list li, .skill-item, .nav a, .nav-brand, .nav-link'
+);
 
 interactiveElements.forEach(item => {
   // Expand cursor into an open lens overlay when framing text strings
@@ -49,8 +51,8 @@ interactiveElements.forEach(item => {
 // --- Navigation Scroll Fade-In Bottom Line ---
 window.addEventListener('scroll', () => {
   if (window.scrollY > 15) {
-    navElement.classList.add('scrolled');
+    if (navElement) navElement.classList.add('scrolled');
   } else {
-    navElement.classList.remove('scrolled');
+    if (navElement) navElement.classList.remove('scrolled');
   }
 });
