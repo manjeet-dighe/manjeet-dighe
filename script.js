@@ -1,4 +1,5 @@
 const cursorRing = document.getElementById('custom-cursor-ring');
+const navElement = document.querySelector('.nav');
 
 let mouseX = 0, mouseY = 0;   // Real-time mouse values
 let ringX = 0, ringY = 0;     // Inertial tracking positions
@@ -16,24 +17,40 @@ function renderCursorLoop() {
   ringX = lerp(ringX, mouseX, 0.15);
   ringY = lerp(ringY, mouseY, 0.15);
   
-  cursorRing.style.left = `${ringX}px`;
-  cursorRing.style.top = `${ringY}px`;
+  if (cursorRing) {
+    cursorRing.style.left = `${ringX}px`;
+    cursorRing.style.top = `${ringY}px`;
+  }
   
   requestAnimationFrame(renderCursorLoop);
 }
 requestAnimationFrame(renderCursorLoop);
 
 // --- Element Interaction Tracking ---
-const skillItems = document.querySelectorAll('.skill-item');
+// Elements that trigger the hover state (subtle cursor expansion)
+const interactiveElements = document.querySelectorAll('.skill-item, .nav-link, .nav-brand');
 
-skillItems.forEach(item => {
+interactiveElements.forEach(item => {
   // Expand cursor into an open lens overlay when framing text strings
   item.addEventListener('mouseenter', () => {
-    cursorRing.classList.add('expanded-lens');
+    if (cursorRing) {
+      cursorRing.classList.add('expanded-lens');
+    }
   });
   
   // Instantly return to default upscale baseline diameter when leaving list area
   item.addEventListener('mouseleave', () => {
-    cursorRing.classList.remove('expanded-lens');
+    if (cursorRing) {
+      cursorRing.classList.remove('expanded-lens');
+    }
   });
+});
+
+// --- Navigation Scroll Fade-In Bottom Line ---
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 15) {
+    navElement.classList.add('scrolled');
+  } else {
+    navElement.classList.remove('scrolled');
+  }
 });
