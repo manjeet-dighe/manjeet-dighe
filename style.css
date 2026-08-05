@@ -438,39 +438,39 @@ a, .skill-item, button {
 }
 
 /* ==========================================================================
-   6. SKILLS TOOLKIT — RENZHI OPEN GRID MATCH
+   6. SKILLS TOOLKIT — RENZHI EXACT MATCH
    ========================================================================== */
 .toolkit-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    border-top: 1px solid rgba(10, 10, 10, 0.12);    /* Crisp 12% opacity line */
-    border-bottom: 1px solid rgba(10, 10, 10, 0.12); /* Crisp 12% opacity line */
-    border-left: none;                             /* Open left side */
-    border-right: none;                            /* Open right side */
+    border-top: 1px solid rgba(10, 10, 10, 0.12);
+    border-bottom: 1px solid rgba(10, 10, 10, 0.12);
+    border-left: none;
+    border-right: none;
     margin-bottom: var(--space-xl);
 }
 
 .toolkit-col {
     padding: 32px 20px;
-    border-right: 1px solid rgba(10, 10, 10, 0.12); /* Inner vertical divider */
+    border-right: 1px solid rgba(10, 10, 10, 0.12);
     position: relative;
     background-color: transparent;
 }
 
 .toolkit-col:last-child {
-    border-right: none; /* Keeps outer right edge completely open */
+    border-right: none;
 }
 
-/* Uppercase Tracked Column Headers */
+/* Orange, Regular (400 weight, non-bold), Tracked Monospace Titles */
 .toolkit-col-title {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 400; /* Regular weight, matching Renzhi exactly */
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(10, 10, 10, 0.55); /* Clean muted gray header */
+    letter-spacing: 0.15em;
+    color: var(--accent); /* Orange accent color */
     margin-bottom: 24px;
 }
 
@@ -480,15 +480,19 @@ a, .skill-item, button {
     margin: 0;
 }
 
-/* High contrast skill list items */
+/* Crisp skill items with light horizontal divider lines underneath */
 .skill-item {
     font-family: var(--font-body);
     font-size: 0.88rem;
     line-height: 1.6;
-    color: #0A0A0A; /* Solid ink for high contrast readability */
-    padding: 0.4rem 0;
-    border-bottom: none; /* Removes floating underlines */
+    color: var(--ink);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08); /* Light ledger underline */
     transition: padding-left 0.25s ease, color 0.2s ease;
+}
+
+.toolkit-list li:last-child .skill-item {
+    border-bottom: none; /* Keeps bottom boundary clean */
 }
 
 .skill-item:hover {
